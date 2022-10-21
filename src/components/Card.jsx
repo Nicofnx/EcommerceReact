@@ -4,19 +4,26 @@ import zapa from '../imagenes/zapamuestra.png'
 import Button from './Button'
 
 
-const Card = () => {
+const Card = (props) => {
+
+  const {id, imgCard, mark, description, price } = props
+
+  const alerta = () => {
+    console.log('redireccionar por id', id)
+  }
+
   return(
-    <div>
-      <div className="containerBox">
+    <div id={id}>
+      <div onClick={alerta} className="containerBox">
         <div className="containerImg">
           <img className='imgCard' src={zapa} alt="zapatilla" />
         </div>
         <div className="marckAndDescription">
-          <h3>Nike</h3>
-          <p>Calzado de running en carretera para hombre Downshifter 11</p>
+          <h3>{mark}</h3>
+          <p>{description}</p>
         </div>
         <div className="containerbuttoms">
-          <p>$18.500</p>
+          <p>${price}</p>
           <div className="buttons">
             <Button style='btnFavorite'>
               <FeatherIcon size="18" className='logo' icon="heart" />
