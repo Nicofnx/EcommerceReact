@@ -1,0 +1,57 @@
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.btnFavorite {
+  border-radius: 50%;
+  border: none;
+  background-color: #FF6464;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.btnBuy {
+  width: 90px;
+  height: 35px;
+  border: none;
+  border-radius: 25px;
+  background-color: #FF6464;
+  color: #f6f6f6;
+  font-size: 18px;
+  cursor: pointer;
+  
+
+}
+
+.btnLogo {
+  background-color: transparent;
+  border: none;
+  margin: 5px;   
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.btnSearch {
+  padding-right: 10px;
+  position: absolute;
+  background-color: transparent;
+  right: 0;
+  top:0;
+  bottom: 0;
+  width: 40px;
+  border: none;
+  cursor: pointer;
+  font-size: 10px;
+  display: block;
+  
+}

@@ -1,0 +1,23 @@
+
+.navUl {
+  display: flex;
+  justify-content: center ;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+  margin: 25px 0;
+  }
+
+.navLi {  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFF;
+  padding: 20px 18px;
+  height: 40px;
+  list-style: none;
+  border-radius: 20px;
+  margin: 10px;
+  cursor: pointer;
+  border: 1px solid #FF6464;
+}

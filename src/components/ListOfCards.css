@@ -1,0 +1,28 @@
+
+
+.containerList {
+  max-width: 1440px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 350px 1fr 1fr 1fr ;
+  grid-template-areas:'filters listCards listCards listCards';   
+  grid-template-rows: auto;
+  justify-content: center;
+  
+}
+
+
+.filters {
+  grid-area: filters;
+  border: 1px solid white;
+  margin: 10px;
+  padding: 8px;
+}
+
+.listCards {
+  grid-area: listCards;  
+  display: flex;  
+  flex-wrap: wrap;
+  align-items: center;
+  
+}
