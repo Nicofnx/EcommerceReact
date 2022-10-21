@@ -42,10 +42,11 @@ const ListOfCards = () => {
       </aside>
       <div className="listCards">
         {
-          cards.map((card)=>{
+          cards.map((card, index)=>{
             const {id, mark, description, price} = card
             return(
-              <Card 
+              <Card
+                key = {index} 
                 id = {id}
                 mark = {mark}
                 description = {description}
