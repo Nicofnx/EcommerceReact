@@ -13,7 +13,7 @@ const Header = () => {
         <div className='boxSearch'>
           <input className='inputHeader' type="text" placeholder="Buscar..." />
           <Button
-          style='btnSearch'>
+          mystyle='btnSearch'>
             <FeatherIcon icon="search" />
           </Button>
           
@@ -22,15 +22,15 @@ const Header = () => {
       <div className='boxs'>
         <div className='boxLogos'>
           <Button
-          style='btnLogo'>
+            mystyle='btnLogo'>
             <FeatherIcon size="26" className='logo' icon="heart" />
           </Button>
           <Button
-          style='btnLogo'>
+            mystyle='btnLogo'>
             <FeatherIcon size="26" className='logo' icon="user" />
           </Button>
           <Button
-          style='btnLogo'>
+            mystyle='btnLogo'>
             <FeatherIcon size="26" className='logo' icon="shopping-cart" />
           </Button>
              

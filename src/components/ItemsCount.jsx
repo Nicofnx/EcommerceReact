@@ -1,10 +1,11 @@
 import { useState } from "react"
+import Button from "./Button"
 import "./ItemsCount.css"
 
 const ItemsCount = (props) => {
   
   const {stock, initial} = props
-
+  
   const [number, setNumber] = useState(initial)
  
 
@@ -25,15 +26,28 @@ const ItemsCount = (props) => {
     alert('Su pedido fue cargado con exito')
   }
 
-
   return(
     <div className="container">
       <div className="container__selector">
-        <button onClick={putOff}  className="btn"> - </button>
+        <Button
+          onClick={putOff} 
+          mystyle='btn'
+          > - 
+        </Button>
+        
         <div className="number">{number}</div>
-        <button onClick={addOn} className="btn"> + </button>      
-      </div>
-      <button onClick={addCart} className="addCart">Agregar al carrito</button>
+        
+        <Button
+          onClick={addOn} 
+          mystyle='btn'
+          > + 
+        </Button>      
+      </div>      
+      <Button
+          onClick={addCart} 
+          mystyle='addCart'
+          > Agregar al carrito 
+        </Button>  
     </div>
     
   )

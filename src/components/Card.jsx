@@ -8,27 +8,29 @@ const Card = (props) => {
 
   const {id, imgCard, mark, description, price } = props
 
-  const alerta = () => {
+  const redirection = () => {
     console.log('redireccionar por id', id)
   }
 
   return(
     <div id={id}>
-      <div onClick={alerta} className="containerBox">
-        <div className="containerImg">
+      <div  className="containerBox">
+        <div onClick={redirection} className="containerImg">
           <img className='imgCard' src={zapa} alt="zapatilla" />
         </div>
-        <div className="marckAndDescription">
+        <div onClick={redirection} className="marckAndDescription">
           <h3>{mark}</h3>
           <p>{description}</p>
         </div>
         <div className="containerbuttoms">
           <p>${price}</p>
           <div className="buttons">
-            <Button style='btnFavorite'>
+            <Button 
+              mystyle='btnFavorite'>
               <FeatherIcon size="18" className='logo' icon="heart" />
             </Button>
-            <Button style='btnBuy'>
+            <Button 
+              mystyle='btnBuy'>
               Comprar
             </Button>
             

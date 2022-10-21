@@ -22,15 +22,7 @@
   color: #FFF;
 }
 
-.btn {
-  width: 40px;
-  height: 40px;
-  margin: 5px;
-  font-size: 20px;
-  background-color: #fff;
-  border: 0px;
-  cursor: pointer;
-}
+
 
 .addCart {
   min-width: 200px;

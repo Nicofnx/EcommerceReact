@@ -31,6 +31,12 @@ const cards = [
     mark : 'Nike',
     description : 'Calzado de running en carretera para hombre Downshifter 11',
     price : '18.500'
+  },
+  {
+    id : 6,
+    mark : 'Adidas',
+    description : 'Adidas el mejor calzado deportivo modelo FutbolZero para tu amigo el "mago"',
+    price : '24.900'
   }
 ]
 
