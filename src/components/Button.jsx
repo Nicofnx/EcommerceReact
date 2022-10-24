@@ -1,12 +1,12 @@
-import './Button.css'
-
+import styles from './Button.module.css'
+console.log(styles)
 const Button = (props) => {
 
   const {children, mystyle, onClick} = props
   
 
   return(
-    <button onClick={onClick} className={mystyle}>{children}</button>
+    <button onClick={onClick} className={styles[mystyle]}>{children}</button>
   )
 }
 

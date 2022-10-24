@@ -1,4 +1,4 @@
-import './ListOfCards.css'
+import styles from './ListOfCards.module.css'
 import Card from './Card'
 import ItemsCount from './ItemsCount';
 
@@ -50,11 +50,11 @@ const ListOfCards = (props) => {
   return(
     <>
     <h1>{ greeting }</h1>
-    <div className="containerList">
+    <div className={styles.containerList}>
       
-      <aside className="filters">
+      <aside className={styles.filters}>
       </aside>
-      <div className="listCards">
+      <div className={styles.listCards}>
         {
           cards.map((card, index)=>{
             const {id, mark, description, price} = card

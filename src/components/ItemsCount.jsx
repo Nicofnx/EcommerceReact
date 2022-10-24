@@ -1,6 +1,6 @@
 import { useState } from "react"
 import Button from "./Button"
-import "./ItemsCount.css"
+import styles from "./ItemsCount.module.css"
 
 const ItemsCount = (props) => {
   
@@ -27,15 +27,15 @@ const ItemsCount = (props) => {
   }
 
   return(
-    <div className="container">
-      <div className="container__selector">
+    <div className={styles.container}>
+      <div className={styles.container__selector}>
         <Button
           onClick={putOff} 
           mystyle='btn'
           > - 
         </Button>
         
-        <div className="number">{number}</div>
+        <div className={styles.number}>{number}</div>
         
         <Button
           onClick={addOn} 

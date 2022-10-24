@@ -1,9 +1,5 @@
 
-.buttons {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
+
 
 .btn {
   width: 40px;
@@ -19,6 +15,7 @@
   border-radius: 50%;
   border: none;
   background-color: #FF6464;
+  color:#f6f6f6;
   width: 35px;
   height: 35px;
   display: flex;
@@ -63,5 +60,15 @@
   cursor: pointer;
   font-size: 10px;
   display: block;
+  
+}
+
+.addCart {
+  min-width: 200px;
+  height: 50px;
+  background-color: #fff;
+  border: 1px solid #444;
+  border-radius: 7px;
+  cursor: pointer;
   
 }

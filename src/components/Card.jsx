@@ -1,4 +1,4 @@
-import './Card.css'
+import styles from './Card.module.css'
 import FeatherIcon from 'feather-icons-react'
 import zapa from '../imagenes/zapamuestra.png'
 import Button from './Button'
@@ -14,17 +14,17 @@ const Card = (props) => {
 
   return(
     <div id={id}>
-      <div  className="containerBox">
-        <div onClick={redirection} className="containerImg">
-          <img className='imgCard' src={zapa} alt="zapatilla" />
+      <div  className={styles.containerBox}>
+        <div onClick={redirection} className={styles.containerImg}>
+          <img className={styles.imgCard} src={zapa} alt="zapatilla" />
         </div>
-        <div onClick={redirection} className="marckAndDescription">
+        <div onClick={redirection} className={styles.marckAndDescription}>
           <h3>{mark}</h3>
           <p>{description}</p>
         </div>
-        <div className="containerbuttoms">
+        <div className={styles.containerbuttoms}>
           <p>${price}</p>
-          <div className="buttons">
+          <div className={styles.buttons}>
             <Button 
               mystyle='btnFavorite'>
               <FeatherIcon size="18" className='logo' icon="heart" />

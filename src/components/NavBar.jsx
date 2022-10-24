@@ -1,4 +1,4 @@
-import "./NavBar.css"
+import styles from "./NavBar.module.css"
 
 const NavBar = () => {
 
@@ -6,11 +6,11 @@ const NavBar = () => {
 
   return(
     <div>
-      <ul className="navUl">
+      <ul className={styles.navUl}>
         {
           menuItems.map((item, index) =>{
             return(
-              <li className="navLi" key={index} >{item}</li>
+              <li className={styles.navLi} key={index} >{item}</li>
             )
           })
         }
