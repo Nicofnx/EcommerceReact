@@ -1,5 +1,6 @@
 import './ListOfCards.css'
 import Card from './Card'
+import ItemsCount from './ItemsCount';
 
 const cards = [
   {
@@ -40,11 +41,18 @@ const cards = [
   }
 ]
 
-const ListOfCards = () => {
-  return(
-    <div className="containerList">
-      <aside className="filters">
 
+
+const ListOfCards = (props) => {
+
+  const {greeting} = props
+
+  return(
+    <>
+    <h1>{ greeting }</h1>
+    <div className="containerList">
+      
+      <aside className="filters">
       </aside>
       <div className="listCards">
         {
@@ -61,10 +69,16 @@ const ListOfCards = () => {
             )
           })
         }
+        <ItemsCount
+        stock = {5}
+        initial = {1}
+      />
         
       </div>
       
     </div>
+    </>
+    
   )
 }
 

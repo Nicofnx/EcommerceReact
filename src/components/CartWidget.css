@@ -1,0 +1,20 @@
+.containercart {
+  position: relative;
+
+}
+
+
+
+.bubble {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  background-color: #FF6464;  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

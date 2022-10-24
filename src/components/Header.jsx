@@ -1,5 +1,6 @@
 import FeatherIcon from 'feather-icons-react'
 import Button from './Button'
+import CartWidget from './CartWidget'
 import './Header.css'
 
 const Header = () => {
@@ -23,17 +24,13 @@ const Header = () => {
         <div className='boxLogos'>
           <Button
             mystyle='btnLogo'>
-            <FeatherIcon size="26" className='logo' icon="heart" />
+            <FeatherIcon size="32" className='logo' icon="heart" />
           </Button>
           <Button
             mystyle='btnLogo'>
-            <FeatherIcon size="26" className='logo' icon="user" />
+            <FeatherIcon size="32" className='logo' icon="user" />
           </Button>
-          <Button
-            mystyle='btnLogo'>
-            <FeatherIcon size="26" className='logo' icon="shopping-cart" />
-          </Button>
-             
+          <CartWidget />             
         </div>
       </div>  
       </div>    
