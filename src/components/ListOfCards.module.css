@@ -4,10 +4,12 @@
   max-width: 1440px;
   margin: auto;
   display: grid;
-  grid-template-columns: 350px 1fr 1fr 1fr ;
-  grid-template-areas:'filters listCards listCards listCards';   
+  grid-template-columns: 350px auto ;
+  grid-template-areas:'filters listCards';   
   grid-template-rows: auto;
   justify-content: center;
+  align-content: center;
+  
   
 }
 
@@ -20,9 +22,9 @@
 }
 
 .listCards {
-  grid-area: listCards;  
-  display: flex;  
-  flex-wrap: wrap;
+  display: flex;
+  
   align-items: center;
+  flex-wrap: wrap;
   
 }

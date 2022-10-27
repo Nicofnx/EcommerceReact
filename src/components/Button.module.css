@@ -2,8 +2,8 @@
 
 
 .btn {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   margin: 5px;
   font-size: 20px;
   background-color: #fff;
@@ -16,8 +16,7 @@
   border: none;
   background-color: #FF6464;
   color:#f6f6f6;
-  width: 35px;
-  height: 35px;
+  padding: 10px 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,8 +25,8 @@
 }
 
 .btnBuy {
-  width: 90px;
-  height: 35px;
+  padding: 10px 30px;
+  
   border: none;
   border-radius: 25px;
   background-color: #FF6464;
@@ -45,7 +44,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
+  cursor: pointer;
 }
 
 .btnSearch {

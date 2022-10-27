@@ -21,13 +21,11 @@ const ItemsCount = (props) => {
     }
   }
 
-  const addCart = () => {
-    setNumber(initial)
-    alert('Su pedido fue cargado con exito')
-  }
+  
 
   return(
     <div className={styles.container}>
+      <p>Cantidad:</p>
       <div className={styles.container__selector}>
         <Button
           onClick={putOff} 
@@ -43,11 +41,7 @@ const ItemsCount = (props) => {
           > + 
         </Button>      
       </div>      
-      <Button
-          onClick={addCart} 
-          mystyle='addCart'
-          > Agregar al carrito 
-        </Button>  
+      <p>Stock: {stock} unidades</p>
     </div>
     
   )

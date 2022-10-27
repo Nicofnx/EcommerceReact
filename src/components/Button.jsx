@@ -1,5 +1,5 @@
 import styles from './Button.module.css'
-console.log(styles)
+
 const Button = (props) => {
 
   const {children, mystyle, onClick} = props

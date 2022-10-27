@@ -30,7 +30,9 @@ const Header = () => {
             mystyle='btnLogo'>
             <FeatherIcon size="36" className='logo' icon="user" />
           </Button>
-          <CartWidget />             
+          <CartWidget 
+            number = {1}
+          />             
         </div>
       </div>  
       </div>    
