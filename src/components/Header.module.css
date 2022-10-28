@@ -11,7 +11,8 @@
 @media (min-width: 500px) {
 
   .headerBox {
-    margin: auto;
+    width: 100%;
+    background-color: #363636;
     
     border-bottom: 2px solid #f48585;
   }
@@ -30,6 +31,13 @@
     
     width: 100%;
     
+  }
+
+  .titlemark{
+    font-size: 30px;
+    text-decoration:none;
+    color: white;
+    text-align: left;
   }
   
   .boxSearch {
@@ -53,7 +61,7 @@
   
   .boxLogos {
     display: flex;  
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
   }
 

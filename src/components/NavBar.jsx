@@ -5,7 +5,7 @@ const NavBar = () => {
   const menuItems = ["Categorias", "Hombre", "Mujer", "Infantil", "Marcas", "Liquidacion"]
 
   return(
-    <div>
+    <div  className={styles.containerNav}>
       <ul className={styles.navUl}>
         {
           menuItems.map((item, index) =>{

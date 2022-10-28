@@ -10,9 +10,19 @@ const CheckOut = (props) => {
 
   return (
     <div className={styles.container}>
-      <CardCheckOut />
-      <CardCheckOut />
-      <CardCheckOut />
+      <div className={styles.containercards}>
+        <CardCheckOut />
+        <CardCheckOut />
+        <CardCheckOut />
+        <CardCheckOut />
+        <CardCheckOut />
+        <CardCheckOut />
+        <CardCheckOut />
+        <CardCheckOut />
+        <CardCheckOut />
+        <CardCheckOut />
+        
+      </div>
       <div className={styles.containertotal}>
         <p>Total de la compra: 
           <span>

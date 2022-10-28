@@ -42,7 +42,7 @@ const Card = (props) => {
             </Button>
             <Button 
               mystyle='btnBuy'>
-              Comprar
+              Agregar<FeatherIcon size="22" className='logo 'icon="shopping-cart" />
             </Button>
             
           </div>

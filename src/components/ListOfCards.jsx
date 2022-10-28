@@ -32,10 +32,7 @@ const ListOfCards = (props) => {
             )
           })
         }
-        <ItemsCount
-        stock = {5}
-        initial = {1}
-      />
+        
         
       </div>
       
