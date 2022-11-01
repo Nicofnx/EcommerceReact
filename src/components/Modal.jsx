@@ -7,20 +7,50 @@ import { useState, useContext } from 'react'
 import ItemsCount from './ItemsCount'
 import DataContext from '../context/DataContext'
 
+const imagesIndex = {
+  0: 'general',
+  1: 'side',
+  2: 'pair'
+}
+
 const Modal = (props) => {
 
-  const [fav, setFav] = useState(false)
-  const [isActive, setIsActive] = useState(true)
+  const [fav, setFav] = useState(false)  
   const {infoModal, setModalOpen} = useContext(DataContext)
+  const {id, mark, model, description, price, size, stock, img} = infoModal  
+  const [imgShow, setImgShow] = useState(img[imagesIndex[0]])
+  const [isActiveImgModal, setIsActiveImgModal] = useState(false)
+  const [btngalleyImg, setBtnGalletyImg] = useState(0)
+
+
+  const BtnSelectImg = (props) => {
+
+    const handleOnClick = ({e, id}) => {
+      if(props.onClick){
+        props.onClick({e, id})
+      }
+    }
+    return(
+      <div key={props.btnId} id={props.btnId} onClick={(e)=>{handleOnClick({e, id:props.btnId})}} className={props.stateOn ? styles.isActive : styles.selector}> </div>
+    )
+  }
+
+
    
-  const onClick = (e) => {
+  const onClick = () => {
     setFav(!fav)
     
   }
 
-  const changeSelected = () =>{
-    setIsActive(!isActive)
-  }
+  
+  
+  const changeSelected = ({e, id}) =>{
+    setBtnGalletyImg(id)
+    
+    setImgShow(img[imagesIndex[id]])
+    
+    }
+
 
   const closeModal=()=>{
     setModalOpen(false)
@@ -32,20 +62,32 @@ const Modal = (props) => {
   }
 
 
-  const {id, mark, model, description, price, size, stock, img} = infoModal  
-  
-
   return (
     <div className={styles.fullcontainer}>
       <div id={id} className={styles.container}>
         <div onClick={closeModal} className={styles.btnclosed}>X</div>
         <div className={styles.container__img}>
-          <img className={styles.img__products} src={img.general} alt="" />
+          <img className={styles.img__products} src={imgShow} alt="" />
         </div>
-        <div className={styles.selector__img}>      
-          <div onClick={changeSelected} className={isActive ?styles.isActive :styles.selector}></div>
-          <div className={styles.selector}></div>
-          <div className={styles.selector}></div>
+        <div className={styles.selector__img}>
+          <BtnSelectImg            
+            btnId={0}
+            onClick = {changeSelected}
+            stateOn = {btngalleyImg===0}
+            
+          />   
+          <BtnSelectImg            
+            btnId={1}
+            onClick = {changeSelected}
+            stateOn = {btngalleyImg===1}
+          /> 
+          <BtnSelectImg            
+            btnId={2}
+            onClick = {changeSelected}
+            stateOn = {btngalleyImg===2}
+          />    
+          
+          
         </div>
         <div className={styles.container__data}>
           <div className={styles.modelprice}>
@@ -54,11 +96,11 @@ const Modal = (props) => {
           </div>
           <div className={styles.sizeamount}>
               <div className={styles.size}>
-                <label for="number">Talle:</label>
+                <label>Talle:</label>
                 <select name="lenguajes" id="lang">
                   {
-                    size.map((size=>{
-                      return <option value="number">{size}</option>
+                    size.map(((size, index)=>{
+                      return <option key= {index} value="number">{size}</option>
                     }))
                   }
                               

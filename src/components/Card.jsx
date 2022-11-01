@@ -18,7 +18,7 @@ const Card = (props) => {
   
   
   
-  const example = (data) => {
+  const dataToModal = (data) => {
     setInfoModal(data)
     setModalOpen(true)
     
@@ -53,7 +53,7 @@ const Card = (props) => {
             <Button 
               id = {id}
               mystyle='btnBuy'
-              onClick={()=>{example(props.product)}}
+              onClick={()=>{dataToModal(props.product)}}
               >
               Detalle
             </Button>

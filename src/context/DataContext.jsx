@@ -6,8 +6,9 @@ const DataProvider = ({children}) => {
 
   const [infoModal, setInfoModal] = useState(null)
   const [modalOpen, setModalOpen] = useState(false)
+  const [isActiveImgModal, setIsActiveImgModal] = useState(true)
   
-  const result= {infoModal, setInfoModal,modalOpen, setModalOpen}
+  const result= {infoModal, setInfoModal,modalOpen, setModalOpen, isActiveImgModal, setIsActiveImgModal}
 
 
   return(
