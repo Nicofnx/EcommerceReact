@@ -12,6 +12,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import { DataProvider } from './context/DataContext'
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <DataProvider>
         <Header />      
         <NavBar />      
         
@@ -34,6 +36,9 @@ function App() {
           Carrito de compras
           </Route>
         </Routes>
+         
+        </DataProvider>
+        
       </Router>
       
         
@@ -43,7 +48,7 @@ function App() {
 
       
       
-      {/* <Modal /> */}
+     
       
       
     </div>

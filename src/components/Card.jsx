@@ -1,20 +1,30 @@
 import styles from './Card.module.css'
 import FeatherIcon from 'feather-icons-react'
 import Button from './Button'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import accounting from 'accounting'
+import DataContext from '../context/DataContext'
 
 const Card = (props) => {
   
   const {id, img, mark, model, description, price } = props.product
   
+  const { setInfoModal, setModalOpen} = useContext(DataContext)
   
+
   const [fav, setFav] = useState(false)
   
-  const redirection = () => {
-    console.log('redireccionar por id', id)
-  }
 
+  
+  
+  
+  const example = (data) => {
+    setInfoModal(data)
+    setModalOpen(true)
+    
+    
+  }
+ 
   const onClick = (e) => {
     setFav(!fav)
     
@@ -23,10 +33,10 @@ const Card = (props) => {
   return(
     <div id={id}>
       <div  className={styles.containerBox}>
-        <div onClick={redirection} className={styles.containerImg}>
+        <div className={styles.containerImg}>
           <img className={styles.imgCard} src={img.general} alt="zapatilla" />
         </div>
-        <div onClick={redirection} className={styles.marckAndDescription}>
+        <div  className={styles.marckAndDescription}>
           <h3>{mark}</h3>
           <h4>{model}</h4>
           <p>{description}</p>
@@ -41,8 +51,11 @@ const Card = (props) => {
               <FeatherIcon  size="18" className= 'logo' fill={fav===false ? "none" :"white"}  icon="heart" />
             </Button>
             <Button 
-              mystyle='btnBuy'>
-              Agregar<FeatherIcon size="22" className='logo 'icon="shopping-cart" />
+              id = {id}
+              mystyle='btnBuy'
+              onClick={()=>{example(props.product)}}
+              >
+              Detalle
             </Button>
             
           </div>

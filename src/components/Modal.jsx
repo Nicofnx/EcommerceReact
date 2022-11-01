@@ -3,15 +3,16 @@ import styles from './Modal.module.css'
 import products from '../products-data'
 import accounting from 'accounting'
 import FeatherIcon from 'feather-icons-react'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import ItemsCount from './ItemsCount'
+import DataContext from '../context/DataContext'
 
 const Modal = (props) => {
 
   const [fav, setFav] = useState(false)
   const [isActive, setIsActive] = useState(true)
-  
-
+  const {infoModal, setModalOpen} = useContext(DataContext)
+   
   const onClick = (e) => {
     setFav(!fav)
     
@@ -21,18 +22,23 @@ const Modal = (props) => {
     setIsActive(!isActive)
   }
 
+  const closeModal=()=>{
+    setModalOpen(false)
+  }
+
   const addToCart = () => {
     
     alert('Su pedido fue cargado con exito')
   }
 
 
-  const {id, mark, model, description, price, size, stock, img} = products[5]
-  console.log(size)
+  const {id, mark, model, description, price, size, stock, img} = infoModal  
+  
+
   return (
     <div className={styles.fullcontainer}>
       <div id={id} className={styles.container}>
-        <div className={styles.btnclosed}>X</div>
+        <div onClick={closeModal} className={styles.btnclosed}>X</div>
         <div className={styles.container__img}>
           <img className={styles.img__products} src={img.general} alt="" />
         </div>
