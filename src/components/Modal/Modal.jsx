@@ -1,11 +1,13 @@
-import Button from './Button'
+import Button from '../Button'
 import styles from './Modal.module.css'
-import products from '../products-data'
+import BtnSelectImg from './BtnSelectImg'
 import accounting from 'accounting'
 import FeatherIcon from 'feather-icons-react'
 import { useState, useContext } from 'react'
-import ItemsCount from './ItemsCount'
-import DataContext from '../context/DataContext'
+import ItemsCount from '../ItemsCount'
+import DataContext from '../../context/DataContext'
+import { actionTypes } from '../../context/reducer'
+import { useStateValue } from '../../context/BasketContext'
 
 const imagesIndex = {
   0: 'general',
@@ -16,24 +18,15 @@ const imagesIndex = {
 const Modal = (props) => {
 
   const [fav, setFav] = useState(false)  
-  const {infoModal, setModalOpen} = useContext(DataContext)
+  const {infoModal, setModalOpen, number} = useContext(DataContext)
   const {id, mark, model, description, price, size, stock, img} = infoModal  
   const [imgShow, setImgShow] = useState(img[imagesIndex[0]])
-  const [isActiveImgModal, setIsActiveImgModal] = useState(false)
   const [btngalleyImg, setBtnGalletyImg] = useState(0)
+  const [sizeChose, setSizeChose] = useState(null)
+  const [ {basket}, dispatch] = useStateValue()
+  
 
-
-  const BtnSelectImg = (props) => {
-
-    const handleOnClick = ({e, id}) => {
-      if(props.onClick){
-        props.onClick({e, id})
-      }
-    }
-    return(
-      <div key={props.btnId} id={props.btnId} onClick={(e)=>{handleOnClick({e, id:props.btnId})}} className={props.stateOn ? styles.isActive : styles.selector}> </div>
-    )
-  }
+  
 
 
    
@@ -44,26 +37,47 @@ const Modal = (props) => {
 
   
   
-  const changeSelected = ({e, id}) =>{
+  const changeSelected = ({id}) =>{
     setBtnGalletyImg(id)
     
     setImgShow(img[imagesIndex[id]])
     
-    }
+  }
 
 
   const closeModal=()=>{
     setModalOpen(false)
   }
 
-  const addToCart = () => {
+
+
+  const handleSizeSelect = (e) => {
     
-    alert('Su pedido fue cargado con exito')
+    setSizeChose(e.target.value)
   }
 
+  
+
+  const addToBasket= () => {
+    dispatch({
+      type: actionTypes.ADD_TO_BASKET,
+      item: {
+        id,
+        mark,
+        sizeChose,
+        description,
+        price,
+        img,
+        number,
+      }
+    })
+    alert('Su pedido fue cargado con exito')
+    
+  }
+  
 
   return (
-    <div className={styles.fullcontainer}>
+    <div className={styles.overlay}>
       <div id={id} className={styles.container}>
         <div onClick={closeModal} className={styles.btnclosed}>X</div>
         <div className={styles.container__img}>
@@ -91,16 +105,17 @@ const Modal = (props) => {
         </div>
         <div className={styles.container__data}>
           <div className={styles.modelprice}>
-            <h2>{model}</h2>
+            <h2>{mark} {model}</h2>
             <h2>{accounting.formatMoney(price, '$', '.', '.', 0)}</h2>
           </div>
           <div className={styles.sizeamount}>
               <div className={styles.size}>
                 <label>Talle:</label>
-                <select name="lenguajes" id="lang">
+                <select onChange={handleSizeSelect} name="sizes" id="sizes">
+                <option value={null}></option>
                   {
                     size.map(((size, index)=>{
-                      return <option key= {index} value="number">{size}</option>
+                      return <option key= {index} value={size}>{size}</option>
                     }))
                   }
                               
@@ -108,6 +123,7 @@ const Modal = (props) => {
               </div>
               <div className={styles.amount}>
                 <ItemsCount
+                  
                   initial = {1}
                   stock = {stock}
                 /> 
@@ -124,7 +140,7 @@ const Modal = (props) => {
                   <FeatherIcon  size="18" className= 'logo' fill={fav===false ? "none" :"white"}  icon="heart" />
                 </Button>
                 <Button 
-                  onClick = {addToCart}                  
+                  onClick = {addToBasket}                  
                   mystyle='btnBuy'>
                   Agregar al carrito
                 </Button>

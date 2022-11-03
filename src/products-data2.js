@@ -157,4 +157,8 @@ const products = [
   
 ]
 
+const obje = JSON.stringify(products)
+
+
+
 export default products

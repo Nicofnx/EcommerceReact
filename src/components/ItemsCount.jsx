@@ -1,12 +1,14 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
 import Button from "./Button"
 import styles from "./ItemsCount.module.css"
+import DataContext from '../context/DataContext'
 
 const ItemsCount = (props) => {
   
-  const {stock, initial} = props
+  const {stock} = props
   
-  const [number, setNumber] = useState(initial)
+
+  const {number, setNumber} = useContext(DataContext)
  
 
   const addOn = () => {
@@ -24,7 +26,7 @@ const ItemsCount = (props) => {
   
 
   return(
-    <div className={styles.container}>
+    <div  className={styles.container}>
       <p>Cantidad:</p>
       <div className={styles.container__selector}>
         <Button
@@ -41,7 +43,7 @@ const ItemsCount = (props) => {
           > + 
         </Button>      
       </div>      
-      <p>Stock: {stock} unidades</p>
+      <p >Stock: {stock} unidades</p>
     </div>
     
   )

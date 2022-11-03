@@ -8,14 +8,15 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import logomarck from '../imagenes/RuNstylesLogo.png'
 
 const Header = () => {
   return(
     <div className={styles.headerBox}>
       <div className={styles.containerHeader}>
       <div className={styles.boxs}>
-        <Link to='/' className={styles.titlemark}>
-         <h2>RuNstyle</h2>
+        <Link to='/'>
+         <img src={logomarck} alt=""  className={styles.titlemark}/>
         </Link>
         
       </div>
@@ -33,17 +34,22 @@ const Header = () => {
         <div className={styles.boxLogos}>
           <Button
             mystyle='btnLogo'>
-            <FeatherIcon size="36" className='logo' icon="heart" />
+            <FeatherIcon size="36" className={styles.logo} icon="heart" />
+            <h4 className={styles.titleLogo}>Favoritos</h4>
           </Button>
           <Button
             mystyle='btnLogo'>
-            <FeatherIcon size="36" className='logo' icon="user" />
+            <FeatherIcon size="36" className={styles.logo}  icon="user" />
+            <h4 className={styles.titleLogo}>Perfil</h4>
           </Button>
-          <Link to='/checkout-page'>
+          <div className={styles.containerCart}>
+          <Link to='/checkout-page' className={styles.logo}>
             <CartWidget 
               number = {1}
             />   
           </Link>
+          <h4 className={styles.titleLogo}>Compras</h4>
+          </div>
                     
         </div>
       </div>  

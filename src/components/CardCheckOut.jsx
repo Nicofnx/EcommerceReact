@@ -2,11 +2,14 @@ import Button from './Button'
 import accounting from 'accounting'
 import FeatherIcon from 'feather-icons-react'
 import styles from './CardCheckOut.module.css'
-import products from '../products-data'
 
-const CardCheckOut = () => {
 
-  const {id, img, mark, model, description, price } = products[1]
+
+const CardCheckOut = (props) => {
+
+  
+  const {id, img, mark, model, description, price, number } = props.basket
+  console.log(props.basket)
 
   return(
     <div  className={styles.containerCard}>
@@ -19,11 +22,14 @@ const CardCheckOut = () => {
           <p>{description}</p>
         </div>
         <div className={styles.containerbuttoms}>
-          <p>{accounting.formatMoney(price, '$', '.', '.', 0)}</p>
+          <div>
+            <p>Cantidad: {number}</p>
+            <p>{accounting.formatMoney((price*number), '$', '.', '.', 0)}</p>
+          </div>
           <div className={styles.buttons}>
             <Button 
               id = {id}
-              onClick = ''
+              onClick = {null}
               mystyle='btnFavorite'>              
               <FeatherIcon  size="34" className= 'logo'   icon="trash-2" />
             </Button>

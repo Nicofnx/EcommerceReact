@@ -7,7 +7,7 @@ const CartWidget = (props) => {
 
   return(
     <div aria-label='Mostrar compras del carrito' className={styles.containercart}>       
-      <FeatherIcon size="36" className='logo 'icon="shopping-cart" />   
+      <FeatherIcon size="36" className={styles.logo} icon="shopping-cart" />   
       {number > 0 
         ?<div className={styles.bubble}>
           {number}

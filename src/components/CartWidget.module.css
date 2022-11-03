@@ -5,6 +5,22 @@
   
 }
 
+.logo {
+    
+  margin: 5px;
+  display: block;
+  cursor: pointer;
+  color: #000;
+  transition: all 200ms ease-in-out;
+  
+}
+
+.logo:hover {
+  color:  #FF6464;
+  transform: scale(1.1);
+  
+}
+
 
 
 .bubble {

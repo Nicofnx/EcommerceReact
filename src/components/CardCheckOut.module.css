@@ -16,7 +16,7 @@
   height: 150px;
   width: 100%;
   overflow: hidden;
-  
+  min-width: 300px;
   
 }
 
@@ -63,11 +63,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 15px;
 }
 
 .containerbuttoms p{
   font-size: 22px;
   font-weight: bold;
+  margin: 10px;
+  width: 150px;
 }
 
 .buttons {

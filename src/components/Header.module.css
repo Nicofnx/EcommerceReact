@@ -13,8 +13,8 @@
   .headerBox {
     width: 100%;
     background-color: #363636;
-    
     border-bottom: 2px solid #f48585;
+    text-align: start;
   }
 
   .containerHeader {
@@ -63,16 +63,41 @@
     display: flex;  
     justify-content: flex-end;
     align-items: center;
+    position: relative;
+    
   }
 
   
   
   .logo {
     
-    margin: 5px;
+    margin: 10px;
     display: block;
     cursor: pointer;
-    color: #fff;
+    color: #000;
+    transition: all 200ms ease-in-out;
+    
+  }
+
+  .logo:hover {
+    color:  #FF6464;
+    transform: scale(1.1);
+    
+  }
+
+  .titleLogo {
+    display: none;
+    position: absolute;
+    bottom: -10px;
+    font-size: 16px;
+    color: #FF6464;
+    transition: all 200ms ease-in-out;
+    
+  }
+
+  .logo:hover .titleLogo {
+    display: block;
+    
   }
   
 }
