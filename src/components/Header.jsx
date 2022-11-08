@@ -3,14 +3,19 @@ import Button from './Button'
 import CartWidget from './CartWidget'
 import styles from './Header.module.css'
 import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
+  
+  
   Link
 } from "react-router-dom";
 import logomarck from '../imagenes/RuNstylesLogo.png'
+import { useStateValue } from '../context/BasketContext'
 
 const Header = () => {
+
+  const [ {basket} ] = useStateValue()
+
+  
+
   return(
     <div className={styles.headerBox}>
       <div className={styles.containerHeader}>
@@ -45,7 +50,7 @@ const Header = () => {
           <div className={styles.containerCart}>
           <Link to='/checkout-page' className={styles.logo}>
             <CartWidget 
-              number = {1}
+              number = {basket.length}
             />   
           </Link>
           <h4 className={styles.titleLogo}>Compras</h4>

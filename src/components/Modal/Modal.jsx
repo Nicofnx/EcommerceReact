@@ -18,13 +18,13 @@ const imagesIndex = {
 const Modal = (props) => {
 
   const [fav, setFav] = useState(false)  
-  const {infoModal, setModalOpen, number} = useContext(DataContext)
-  const {id, mark, model, description, price, size, stock, img} = infoModal  
+  const {infoModal, setModalOpen, number, setNumber} = useContext(DataContext)
+  const {id, mark, model, description, price, size, stock, img} = infoModal
   const [imgShow, setImgShow] = useState(img[imagesIndex[0]])
   const [btngalleyImg, setBtnGalletyImg] = useState(0)
   const [sizeChose, setSizeChose] = useState(null)
   const [ {basket}, dispatch] = useStateValue()
-  
+  console.log(useStateValue())
 
   
 
@@ -58,27 +58,36 @@ const Modal = (props) => {
 
   
 
-  const addToBasket= () => {
-    dispatch({
-      type: actionTypes.ADD_TO_BASKET,
-      item: {
-        id,
-        mark,
-        sizeChose,
-        description,
-        price,
-        img,
-        number,
-      }
-    })
-    alert('Su pedido fue cargado con exito')
+  const addToBasket= (sizeChose) => {
+    
+    if (sizeChose === null){
+      alert('No ingreso un talle')
+    }
+    else {
+      dispatch({
+        type: actionTypes.ADD_TO_BASKET,
+        item: {
+          id,
+          mark,
+          sizeChose,
+          description,
+          price,
+          img,
+          number,
+        }
+      })
+      alert('Su pedido fue cargado con exito')
+      setNumber(1)
+      setModalOpen(false)
+    }
+    
     
   }
   
 
   return (
-    <div className={styles.overlay}>
-      <div id={id} className={styles.container}>
+    <div id={id} className={styles.overlay}>
+      <div  className={styles.container}>
         <div onClick={closeModal} className={styles.btnclosed}>X</div>
         <div className={styles.container__img}>
           <img className={styles.img__products} src={imgShow} alt="" />
@@ -137,10 +146,10 @@ const Modal = (props) => {
                   id = {id}
                   onClick = {onClick}
                   mystyle='btnFavorite'>              
-                  <FeatherIcon  size="18" className= 'logo' fill={fav===false ? "none" :"white"}  icon="heart" />
+                  <FeatherIcon  size="18" className={styles.logo} fill={fav===false ? "none" :"white"}  icon="heart" />
                 </Button>
                 <Button 
-                  onClick = {addToBasket}                  
+                  onClick = {()=>addToBasket(sizeChose)}                  
                   mystyle='btnBuy'>
                   Agregar al carrito
                 </Button>

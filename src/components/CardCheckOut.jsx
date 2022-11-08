@@ -9,7 +9,7 @@ const CardCheckOut = (props) => {
 
   
   const {id, img, mark, model, description, price, number } = props.basket
-  console.log(props.basket)
+  
 
   return(
     <div  className={styles.containerCard}>

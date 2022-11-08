@@ -1,10 +1,10 @@
 import styles from './ListOfCards.module.css'
-import Card from './Card'
-import Spinner from './Spinner';
+import Card from '../Card'
+import Spinner from '../Spinner';
 
 import { useEffect, useState, useContext } from 'react'
-import Modal from './Modal/Modal';
-import DataContext from '../context/DataContext';
+import Modal from '../Modal/Modal';
+import DataContext from '../../context/DataContext';
 
 const ListOfCards = (props) => {
 
@@ -77,12 +77,12 @@ const ListOfCards = (props) => {
         {
           spinner
             ?<Spinner/>
-            :products.map((result)=>{
-              const {id} = result
+            :products.map((product)=>{
+              const {id} = product
               return(
                 <Card                  
                   key = {id} 
-                  product = {result}
+                  item = {product}
                 />
               )
             })
