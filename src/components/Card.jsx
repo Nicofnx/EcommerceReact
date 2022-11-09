@@ -4,20 +4,18 @@ import Button from './Button'
 import { useState, useContext } from 'react'
 import accounting from 'accounting'
 import DataContext from '../context/DataContext'
-import { useNavigate } from "react-router-dom";
 
-const Card = ({item}) => {
+
+const Card = ({item, goToDetails}) => {
   
   const {id, img, mark, model, description, price } = item
-  const navigate = useNavigate()
+  
   const { setInfoModal, setModalOpen} = useContext(DataContext)
   
 
   const [fav, setFav] = useState(false)
   
-  const handleDetail = () => {
-    navigate(`/detailspage/${id}`, { state: item });
-}
+  
   
   
   
@@ -37,7 +35,7 @@ const Card = ({item}) => {
     <div id={id}>
       <div  className={styles.containerBox}>
         <div className={styles.containerImg}>
-          <img onClick={handleDetail} className={styles.imgCard} src={img.general} alt="zapatilla" />
+          <img onClick={() => goToDetails(item)} className={styles.imgCard} src={img.general} alt="zapatilla" />
         </div>
         <div  className={styles.marckAndDescription}>
           <h3>{mark}</h3>
@@ -58,7 +56,7 @@ const Card = ({item}) => {
               mystyle='btnBuy'
               onClick={()=>{dataToModal(item)}}
               >
-              Detalle
+              Comprar
             </Button>
             
           </div>

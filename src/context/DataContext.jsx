@@ -8,8 +8,10 @@ const DataProvider = ({children}) => {
   const [modalOpen, setModalOpen] = useState(false)
   const [isActiveImgModal, setIsActiveImgModal] = useState(true)
   const [number, setNumber] = useState(1)
-  
-  const result= {infoModal, setInfoModal,modalOpen, setModalOpen, isActiveImgModal, setIsActiveImgModal, number, setNumber}
+  const [products, setProducts] = useState([])
+  const [filterProducts, setFilterProducts] = useState([])
+
+  const result= {products, setProducts, filterProducts, setFilterProducts, infoModal, setInfoModal,modalOpen, setModalOpen, isActiveImgModal, setIsActiveImgModal, number, setNumber}
 
 
   return(

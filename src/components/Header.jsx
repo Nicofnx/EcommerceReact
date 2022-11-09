@@ -3,18 +3,42 @@ import Button from './Button'
 import CartWidget from './CartWidget'
 import styles from './Header.module.css'
 import {
-  
-  
   Link
 } from "react-router-dom";
 import logomarck from '../imagenes/RuNstylesLogo.png'
 import { useStateValue } from '../context/BasketContext'
+import DataContext from '../context/DataContext'
+import { useCallback, useContext} from 'react';
 
 const Header = () => {
 
   const [ {basket} ] = useStateValue()
-
+  const {products, setProducts, filterProducts, setFilterProducts} = useContext(DataContext)
   
+
+  const debounce = (func, wait) => {
+    let timeout;
+
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        }
+
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    }
+}
+
+  const onHandleChange = useCallback(debounce((e) => {    
+    const searchValue = e.target.value != '' 
+      ? e.target.value[0].toUpperCase()+e.target.value.substring(1) 
+      : '';
+    const newFilter = products.filter(product => product.mark.includes(searchValue) );
+    
+    setFilterProducts(newFilter);
+  }, 500), [products, setFilterProducts]);
+
 
   return(
     <div className={styles.headerBox}>
@@ -27,11 +51,8 @@ const Header = () => {
       </div>
       <div className={styles.boxs}>
         <div className={styles.boxSearch}>
-          <input className={styles.inputHeader} type="text" placeholder="Buscar..." />
-          <Button
-          mystyle='btnSearch'>
-            <FeatherIcon icon="search" />
-          </Button>
+          <input className={styles.inputHeader} onChange={onHandleChange} type="text" placeholder="Busca por marca..." />
+          
           
         </div>
       </div>

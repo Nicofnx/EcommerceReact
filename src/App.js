@@ -1,11 +1,11 @@
 
 import './App.css';
-import DetailsPages from './components/Pages/DetailsPages'
+import DetailsPages from './Pages/DetailsPages'
 import NavBar from './components/NavBar';
 import Header from './components/Header';
-import ListOfCards from './components/Pages/ListOfCards';
+import ListOfCards from './Pages/ListOfCards';
 
-import CheckOut from './components/Pages/CheckOut';
+import CheckOut from './Pages/CheckOut';
 import {
   BrowserRouter as Router,
   Routes,

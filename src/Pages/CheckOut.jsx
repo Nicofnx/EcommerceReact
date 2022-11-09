@@ -1,15 +1,15 @@
 import styles from './CheckOut.module.css'
 import accounting from 'accounting'
-import CardCheckOut from '../CardCheckOut'
-import Button from '../Button'
+import CardCheckOut from '../components/CardCheckOut'
+import Button from '../components/Button'
 
 
-import { useStateValue } from '../../context/BasketContext'
+import { useStateValue } from '../context/BasketContext'
 
 const CheckOut = (props) => {
 
   const [ {basket} ] = useStateValue()
-  console.log(basket)
+  
 
 
   return (

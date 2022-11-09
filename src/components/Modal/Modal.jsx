@@ -24,7 +24,7 @@ const Modal = (props) => {
   const [btngalleyImg, setBtnGalletyImg] = useState(0)
   const [sizeChose, setSizeChose] = useState(null)
   const [ {basket}, dispatch] = useStateValue()
-  console.log(useStateValue())
+  
 
   
 

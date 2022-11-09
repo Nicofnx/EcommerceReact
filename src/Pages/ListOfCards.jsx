@@ -1,21 +1,21 @@
 import styles from './ListOfCards.module.css'
-import Card from '../Card'
-import Spinner from '../Spinner';
-
+import Card from '../components/Card'
+import Spinner from '../components/Spinner';
+import { useNavigate } from 'react-router-dom';
 import { useEffect, useState, useContext } from 'react'
-import Modal from '../Modal/Modal';
-import DataContext from '../../context/DataContext';
+import Modal from '../components/Modal/Modal';
+import DataContext from '../context/DataContext';
 
 const ListOfCards = (props) => {
 
-  //Estado donde almaceno los productos para las cards
-   const [products, setProducts] = useState([])
+  
   //Estadi para setear on u off el spinner mientras se carga la data
   const [spinner, setSpinner] = useState(false)
 
-  //Contexto para habilitar el modal
-  const {modalOpen} = useContext(DataContext)
+  //Contexto para habilitar el modal y setear productos
+  const {modalOpen, products, setProducts, setFilterProducts, filterProducts} = useContext(DataContext)
 
+  const navigate = useNavigate()
 
   //Efecto donde por medio de una promise realizo el llamado al "servidor"
   /* useEffect(() => {
@@ -49,6 +49,7 @@ const ListOfCards = (props) => {
         const data = await resp.json()
       
         setProducts(data[0].results)
+        setFilterProducts(data[0].results)
         setSpinner(false)
       }
       catch(err) {console.log(err)}
@@ -60,14 +61,16 @@ const ListOfCards = (props) => {
   
   
 
-  const {greeting} = props
+  const handleDetail = (item) => {
+    navigate(`/detailspage/${item.id}`, { state: item });
+}
 
 
-
+console.log(filterProducts)
 
   return(
     <>
-    <h1>{ greeting }</h1>
+    
     <div className={styles.containerList}>
       
       <aside className={styles.filters}>
@@ -77,15 +80,18 @@ const ListOfCards = (props) => {
         {
           spinner
             ?<Spinner/>
-            :products.map((product)=>{
-              const {id} = product
-              return(
-                <Card                  
-                  key = {id} 
-                  item = {product}
-                />
-              )
-            })
+            :filterProducts.length > 0
+              ?filterProducts.map((product)=>{
+                const {id} = product
+                return(
+                  <Card                  
+                    key = {id} 
+                    item = {product}
+                    goToDetails={handleDetail}
+                  />
+                )
+              })
+              :<h2>No Hay productos con la marca buscada</h2>
         }
         
         
