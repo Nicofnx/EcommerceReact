@@ -2,7 +2,7 @@
 
 
 .container {
-  width: 700px;
+  width: 1000px;
   box-shadow: rgba(255, 255, 255, 0.2) 0px 7px 29px 0px;
   background-color: #363636;
   border: 1px solid #FF6464;
@@ -13,33 +13,13 @@
   align-items: center;
 }
 
-.btnclosed {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  width: 40px;
-  height: 40px;
-  border: solid 3px #FF6464;
-  cursor: pointer;    
-  background: none;
-  transition: .3s ease all;
-  border-radius: 50%;
-  color: #fff;
-  z-index: 150;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 18px;
-}
 
-.btnclosed:hover {
-  transform: scale(1.1);
-  font-size: 19px;
-}
+
+
 
 .container__img {
-  min-width: 80%;
-  height: 250px;
+  
+  height: 550px;
   overflow: hidden;
   margin: 30px;
   border-radius: 25px;
@@ -48,9 +28,8 @@
 }
 
 .img__products{
-  width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
 }
 
@@ -110,41 +89,9 @@
   align-items: center;
 }
 
-.size{
-  padding: 15px 30px;
-}
 
-.size label{
-  padding: 0 10px;
-  font-size: 18px;
-  
-}
-.size select{
-  text-align: center;
-  width: 100px;
-  height: 40px;
-  padding: 0 10px;
-  font-size: 18px;
-  border-radius: 4px;
-  
-}
 
-.amount{
-  padding: 15px 30px;
-}
 
-.amount label{
-  padding: 0 10px;
-  font-size: 18px;
-  
-}
-.amount select{
-  width: 70px;
-  padding: 0 10px;
-  font-size: 18px;
-  border-radius: 4px;
-  
-}
 
 .description {
   padding: 15px 30px;
