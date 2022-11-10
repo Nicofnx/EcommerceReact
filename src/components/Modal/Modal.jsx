@@ -2,7 +2,7 @@ import Button from '../Button'
 import styles from './Modal.module.css'
 import BtnSelectImg from './BtnSelectImg'
 import accounting from 'accounting'
-import FeatherIcon from 'feather-icons-react'
+
 import { useState, useContext } from 'react'
 import ItemsCount from '../ItemsCount'
 import DataContext from '../../context/DataContext'
@@ -15,9 +15,9 @@ const imagesIndex = {
   2: 'pair'
 }
 
-const Modal = (props) => {
+const Modal = () => {
 
-  const [fav, setFav] = useState(false)  
+  
   const {infoModal, setModalOpen, number, setNumber} = useContext(DataContext)
   const {id, mark, model, description, price, size, stock, img} = infoModal
   const [imgShow, setImgShow] = useState(img[imagesIndex[0]])
@@ -30,10 +30,7 @@ const Modal = (props) => {
 
 
    
-  const onClick = () => {
-    setFav(!fav)
-    
-  }
+
 
   
   
@@ -141,13 +138,7 @@ const Modal = (props) => {
           <div className={styles.description}>
                 <p>{description}</p>
               </div>
-              <div className={styles.btns}>
-              <Button 
-                  id = {id}
-                  onClick = {onClick}
-                  mystyle='btnFavorite'>              
-                  <FeatherIcon  size="18" className={styles.logo} fill={fav===false ? "none" :"white"}  icon="heart" />
-                </Button>
+              <div className={styles.btns}>              
                 <Button 
                   onClick = {()=>addToBasket(sizeChose)}                  
                   mystyle='btnBuy'>

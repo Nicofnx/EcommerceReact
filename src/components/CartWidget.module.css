@@ -14,6 +14,15 @@
   transition: all 200ms ease-in-out;
   
 }
+.logoIsActive {
+    
+  margin: 5px;
+  display: block;
+  cursor: pointer;
+  color: #FF6464;
+  transition: all 200ms ease-in-out;
+  
+}
 
 .logo:hover {
   color:  #FF6464;

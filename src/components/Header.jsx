@@ -3,7 +3,7 @@ import Button from './Button'
 import CartWidget from './CartWidget'
 import styles from './Header.module.css'
 import {
-  Link
+  NavLink
 } from "react-router-dom";
 import logomarck from '../imagenes/RuNstylesLogo.png'
 import { useStateValue } from '../context/BasketContext'
@@ -13,7 +13,7 @@ import { useCallback, useContext} from 'react';
 const Header = () => {
 
   const [ {basket} ] = useStateValue()
-  const {products, setProducts, filterProducts, setFilterProducts} = useContext(DataContext)
+  const { products, setFilterProducts, isActiveFavorites, setIsActiveFavorites } = useContext(DataContext)
   
 
   const debounce = (func, wait) => {
@@ -31,7 +31,7 @@ const Header = () => {
 }
 
   const onHandleChange = useCallback(debounce((e) => {    
-    const searchValue = e.target.value != '' 
+    const searchValue = e.target.value !== '' 
       ? e.target.value[0].toUpperCase()+e.target.value.substring(1) 
       : '';
     const newFilter = products.filter(product => product.mark.includes(searchValue) );
@@ -39,14 +39,18 @@ const Header = () => {
     setFilterProducts(newFilter);
   }, 500), [products, setFilterProducts]);
 
+  const handleFavorites = () => {
+    setIsActiveFavorites(!isActiveFavorites)
+  }
+
 
   return(
     <div className={styles.headerBox}>
       <div className={styles.containerHeader}>
       <div className={styles.boxs}>
-        <Link to='/'>
+        <NavLink to='/'>
          <img src={logomarck} alt=""  className={styles.titlemark}/>
-        </Link>
+        </NavLink>
         
       </div>
       <div className={styles.boxs}>
@@ -60,7 +64,7 @@ const Header = () => {
         <div className={styles.boxLogos}>
           <Button
             mystyle='btnLogo'>
-            <FeatherIcon size="36" className={styles.logo} icon="heart" />
+            <FeatherIcon size="36" className={!isActiveFavorites ?styles.logo :styles.logoIsAvtive} icon="heart" onClick= {handleFavorites} />
             <h4 className={styles.titleLogo}>Favoritos</h4>
           </Button>
           <Button
@@ -69,11 +73,11 @@ const Header = () => {
             <h4 className={styles.titleLogo}>Perfil</h4>
           </Button>
           <div className={styles.containerCart}>
-          <Link to='/checkout-page' className={styles.logo}>
+          <NavLink to='/checkout-page' className={styles.logo}>
             <CartWidget 
               number = {basket.length}
             />   
-          </Link>
+          </NavLink>
           <h4 className={styles.titleLogo}>Compras</h4>
           </div>
                     

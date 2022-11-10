@@ -12,6 +12,7 @@ import {
   Route,
   
 } from "react-router-dom";
+import ListFavorites from './components/ListFavorites';
 
 
 
@@ -38,6 +39,7 @@ function App() {
             </Route>
             <Route exact path="/detailspage/:detailsId" element={<DetailsPages />} />
           </Routes>
+          <ListFavorites />
         </main>
         <footer>
 

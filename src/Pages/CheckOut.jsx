@@ -2,13 +2,15 @@ import styles from './CheckOut.module.css'
 import accounting from 'accounting'
 import CardCheckOut from '../components/CardCheckOut'
 import Button from '../components/Button'
-
+import { useLocation } from 'react-router-dom'
 
 import { useStateValue } from '../context/BasketContext'
 
 const CheckOut = (props) => {
-
+  const params = useLocation()
+  console.log(params)
   const [ {basket} ] = useStateValue()
+  
   
 
 
@@ -23,6 +25,7 @@ const CheckOut = (props) => {
               <CardCheckOut
                 key = {index}
                 basket = {el}
+                isActive = {params.pathname}
               />
             )
           })

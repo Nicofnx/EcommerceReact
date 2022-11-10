@@ -5,10 +5,10 @@ import styles from './CardCheckOut.module.css'
 
 
 
-const CardCheckOut = (props) => {
+const CardCheckOut = ({basket}) => {
 
   
-  const {id, img, mark, model, description, price, number } = props.basket
+  const {id, img, mark, model, description, price, number } = basket
   
 
   return(

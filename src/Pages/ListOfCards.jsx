@@ -6,6 +6,7 @@ import { useEffect, useState, useContext } from 'react'
 import Modal from '../components/Modal/Modal';
 import DataContext from '../context/DataContext';
 
+
 const ListOfCards = (props) => {
 
   
@@ -13,7 +14,7 @@ const ListOfCards = (props) => {
   const [spinner, setSpinner] = useState(false)
 
   //Contexto para habilitar el modal y setear productos
-  const {modalOpen, products, setProducts, setFilterProducts, filterProducts} = useContext(DataContext)
+  const {modalOpen,setProducts, setFilterProducts, filterProducts} = useContext(DataContext)
 
   const navigate = useNavigate()
 
@@ -42,22 +43,28 @@ const ListOfCards = (props) => {
   //Llamada a un servidor externo usando una async function.
   useEffect(() => {
     setSpinner(true)
+    const controller = new AbortController()
+    const { signal } = controller
     const getData = async () =>{
-
+      
       try{
-        const resp = await fetch("https://636276ef37f2167d6f65171a.mockapi.io/datazapa")
+        const resp = await fetch("https://636276ef37f2167d6f65171a.mockapi.io/datazapa", {signal})
         const data = await resp.json()
       
         setProducts(data[0].results)
         setFilterProducts(data[0].results)
         setSpinner(false)
       }
-      catch(err) {console.log(err)}
+      catch(err) {
+        if (err.name !== 'AbortError') {
+        console.error(err.message)
+        }
+      }
     }
     
     getData()
-    
-  }, [])
+    return () => controller.abort()
+  }, [setProducts, setFilterProducts])
   
   
 
@@ -66,7 +73,7 @@ const ListOfCards = (props) => {
 }
 
 
-console.log(filterProducts)
+
 
   return(
     <>

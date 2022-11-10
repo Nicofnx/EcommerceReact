@@ -4,19 +4,35 @@ import Button from './Button'
 import { useState, useContext } from 'react'
 import accounting from 'accounting'
 import DataContext from '../context/DataContext'
+import { actionTypes } from '../context/reducer'
+import { useStateValue } from '../context/BasketContext'
 
 
 const Card = ({item, goToDetails}) => {
   
   const {id, img, mark, model, description, price } = item
-  
+  const [ {basket, favorites}, dispatch] = useStateValue()
   const { setInfoModal, setModalOpen} = useContext(DataContext)
   
 
   const [fav, setFav] = useState(false)
   
   
-  
+  const addToFavorites = () => {
+    setFav(!fav)
+    dispatch({
+      type: actionTypes.ADD_TO_FAVORITES,
+      item: {
+        id,
+        mark,
+        model,
+        price,
+        img,
+        
+      }
+    })
+    
+  }
   
   
   const dataToModal = (data) => {
@@ -26,10 +42,7 @@ const Card = ({item, goToDetails}) => {
     
   }
  
-  const onClick = (e) => {
-    setFav(!fav)
-    
-  }
+ 
 
   return(
     <div id={id}>
@@ -47,7 +60,7 @@ const Card = ({item, goToDetails}) => {
           <div className={styles.buttons}>
             <Button 
               id = {id}
-              onClick = {onClick}
+              onClick = {addToFavorites}
               mystyle='btnFavorite'>              
               <FeatherIcon  size="22" className= {styles.logo} fill={fav===false ? "none" :"white"}  icon="heart" />
             </Button>
