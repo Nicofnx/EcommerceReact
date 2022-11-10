@@ -31,10 +31,12 @@ const Header = () => {
 }
 
   const onHandleChange = useCallback(debounce((e) => {    
-    const searchValue = e.target.value !== '' 
-      ? e.target.value[0].toUpperCase()+e.target.value.substring(1) 
-      : '';
-    const newFilter = products.filter(product => product.mark.includes(searchValue) );
+    const searchValue = e.target.value.toLowerCase();    
+    const firstLeterMayus = searchValue !== ''
+      ? searchValue[0].toUpperCase()+searchValue.substring(1) 
+      : '';    
+      
+    const newFilter = products.filter(product => product.mark.includes(firstLeterMayus) );
     
     setFilterProducts(newFilter);
   }, 500), [products, setFilterProducts]);

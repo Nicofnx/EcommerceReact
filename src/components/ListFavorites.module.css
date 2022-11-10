@@ -3,7 +3,7 @@
   max-height: 100vh;
   background-color: white;
   visibility: hidden;
-  position: fixed;
+  position: absolute;
   overflow-y: auto;
   top: 242.5px;
   right:-400px;
