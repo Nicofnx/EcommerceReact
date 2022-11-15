@@ -1,7 +1,7 @@
 import styles from './Card.module.css'
 import FeatherIcon from 'feather-icons-react'
 import Button from './Button'
-import { useState, useContext } from 'react'
+import { memo, useContext } from 'react'
 import accounting from 'accounting'
 import DataContext from '../context/DataContext'
 import { actionTypes } from '../context/reducer'
@@ -11,7 +11,7 @@ import { useStateValue } from '../context/BasketContext'
 const Card = ({item, goToDetails, isFavorite}) => {
   
   const {id, img, mark, model, description, price } = item
-  const [ {basket, favorites}, dispatch] = useStateValue()
+  const [ {favorites}, dispatch] = useStateValue()
   const { setInfoModal, setModalOpen} = useContext(DataContext)
   
   
