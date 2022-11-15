@@ -1,6 +1,6 @@
 .containerBox {
   width:300px;
-  
+  box-shadow: 1px 1px 10px 1px #fff;
   border: 1px solid #FF6464;
   border-radius: 10px;
   margin: 10px;

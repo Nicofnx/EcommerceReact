@@ -4,12 +4,24 @@ import FeatherIcon from 'feather-icons-react'
 import styles from './CardCheckOut.module.css'
 
 
+import { actionTypes } from '../context/reducer'
+import { useStateValue } from '../context/BasketContext'
 
-const CardCheckOut = ({basket}) => {
 
+const CardCheckOut = (props) => {
+
+  const [ {basket}, dispatch] = useStateValue()
+  const {id, img, mark, model, description, price, number } = props.basket
   
-  const {id, img, mark, model, description, price, number } = basket
   
+  
+  
+  const deleteItem = () => {
+    dispatch({
+      type: actionTypes.DElETE_TO_BASKET,
+      id
+    })
+  }
 
   return(
     <div  className={styles.containerCard}>
@@ -29,7 +41,7 @@ const CardCheckOut = ({basket}) => {
           <div className={styles.buttons}>
             <Button 
               id = {id}
-              onClick = {null}
+              onClick = {deleteItem}
               mystyle='btnFavorite'>              
               <FeatherIcon  size="34" className= 'logo'   icon="trash-2" />
             </Button>

@@ -28,10 +28,7 @@ const CardDetails = ({item}) => {
 
 
    
-  const onClick = () => {
-    setFav(!fav)
-    
-  }
+ 
 
   
   
@@ -87,12 +84,6 @@ const CardDetails = ({item}) => {
                 <p>{description}</p>
               </div>
               <div className={styles.btns}>
-              <Button 
-                  id = {id}
-                  onClick = {onClick}
-                  mystyle='btnFavorite'>              
-                  <FeatherIcon  size="18" className={styles.logo} fill={fav===false ? "none" :"white"}  icon="heart" />
-                </Button>
                 <p className={styles.description}>Quedan solo {stock} en Stock!</p>
               </div>
         </div>

@@ -8,29 +8,39 @@ import { actionTypes } from '../context/reducer'
 import { useStateValue } from '../context/BasketContext'
 
 
-const Card = ({item, goToDetails}) => {
+const Card = ({item, goToDetails, isFavorite}) => {
   
   const {id, img, mark, model, description, price } = item
   const [ {basket, favorites}, dispatch] = useStateValue()
   const { setInfoModal, setModalOpen} = useContext(DataContext)
   
-
-  const [fav, setFav] = useState(false)
+  
   
   
   const addToFavorites = () => {
-    setFav(!fav)
-    dispatch({
-      type: actionTypes.ADD_TO_FAVORITES,
-      item: {
-        id,
-        mark,
-        model,
-        price,
-        img,
-        
-      }
-    })
+    
+    if (!isFavorite){
+      
+      dispatch({
+        type: actionTypes.ADD_TO_FAVORITES,
+        item: {
+          id,
+          mark,
+          model,
+          price,
+          img,
+          
+        }
+      })
+    }else {
+      
+      dispatch({
+        type: actionTypes.DElETE_TO_FAVORITES,
+        id
+      })
+    }
+
+    
     
   }
   
@@ -45,8 +55,7 @@ const Card = ({item, goToDetails}) => {
  
 
   return(
-    <div id={id}>
-      <div  className={styles.containerBox}>
+    <div id={id} className={styles.containerBox}>
         <div className={styles.containerImg}>
           <img onClick={() => goToDetails(item)} className={styles.imgCard} src={img.general} alt="zapatilla" />
         </div>
@@ -60,9 +69,9 @@ const Card = ({item, goToDetails}) => {
           <div className={styles.buttons}>
             <Button 
               id = {id}
-              onClick = {addToFavorites}
+              onClick = {()=>addToFavorites(item)}
               mystyle='btnFavorite'>              
-              <FeatherIcon  size="22" className= {styles.logo} fill={fav===false ? "none" :"white"}  icon="heart" />
+              <FeatherIcon  size="22" className= {styles.logo} fill={isFavorite===false ? "none" :"white"}  icon="heart" />
             </Button>
             <Button 
               id = {id}
@@ -75,7 +84,6 @@ const Card = ({item, goToDetails}) => {
           </div>
         </div>
       </div>
-    </div>
   )
 }
 

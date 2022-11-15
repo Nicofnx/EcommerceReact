@@ -11,8 +11,10 @@ const DataProvider = ({children}) => {
   const [products, setProducts] = useState([])
   const [filterProducts, setFilterProducts] = useState([])
   const [isActiveFavorites, setIsActiveFavorites] = useState(false)
+  const [productId, setProductId] = useState(null)
+  const [fav, setFav] = useState(false)
 
-  const result= {products, setProducts, filterProducts, setFilterProducts, infoModal, setInfoModal,modalOpen, setModalOpen, isActiveImgModal, setIsActiveImgModal, number, setNumber,isActiveFavorites, setIsActiveFavorites}
+  const result= {products, setProducts, fav, setFav, filterProducts, setFilterProducts, infoModal, setInfoModal,modalOpen, setModalOpen, isActiveImgModal, setIsActiveImgModal, number, setNumber,isActiveFavorites, setIsActiveFavorites, productId, setProductId}
 
 
   return(

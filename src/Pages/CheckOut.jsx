@@ -8,7 +8,7 @@ import { useStateValue } from '../context/BasketContext'
 
 const CheckOut = (props) => {
   const params = useLocation()
-  console.log(params)
+  
   const [ {basket} ] = useStateValue()
   
   

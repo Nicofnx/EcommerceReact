@@ -2,6 +2,7 @@
 
 
 .container {
+  margin: 20px 0;
   width: 1000px;
   box-shadow: rgba(255, 255, 255, 0.2) 0px 7px 29px 0px;
   background-color: #363636;
@@ -101,7 +102,7 @@
 
 .btns {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   padding: 15px 50px;
 }

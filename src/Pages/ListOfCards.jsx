@@ -5,18 +5,21 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect, useState, useContext } from 'react'
 import Modal from '../components/Modal/Modal';
 import DataContext from '../context/DataContext';
-
+import { actionTypes } from '../context/reducer'
+import BasketContext, { useStateValue } from '../context/BasketContext'
 
 const ListOfCards = (props) => {
 
   
   //Estadi para setear on u off el spinner mientras se carga la data
   const [spinner, setSpinner] = useState(false)
-
+  const [isFavorite, setIsFavorite] = useState(false)
   //Contexto para habilitar el modal y setear productos
-  const {modalOpen,setProducts, setFilterProducts, filterProducts} = useContext(DataContext)
-
+  const {modalOpen,setProducts, setFilterProducts, filterProducts, setProductId} = useContext(DataContext)
+  
   const navigate = useNavigate()
+
+  const [ {favorites}, dispatch] = useStateValue()
 
   //Efecto donde por medio de una promise realizo el llamado al "servidor"
   /* useEffect(() => {
@@ -69,12 +72,19 @@ const ListOfCards = (props) => {
   
 
   const handleDetail = (item) => {
-    navigate(`/detailspage/${item.id}`, { state: item });
+    setProductId(item.id)
+    navigate(`/detailspage/${item.id}`);
 }
 
-
-
-
+  
+ /*  const prueba = (item) => {  
+    const favorite = favorites.some(favoriteItem => favoriteItem.id === item.id)
+    console.log(favorite)
+    setIsFavorite(favorite)
+    
+    
+  } */
+  
   return(
     <>
     
@@ -90,9 +100,13 @@ const ListOfCards = (props) => {
             :filterProducts.length > 0
               ?filterProducts.map((product)=>{
                 const {id} = product
+                const isFavorite = favorites?.some(favoriteItem => favoriteItem.id === id)
+                
                 return(
                   <Card                  
                     key = {id} 
+                    
+                    isFavorite = {isFavorite}
                     item = {product}
                     goToDetails={handleDetail}
                   />

@@ -35,7 +35,6 @@ const Header = () => {
     const firstLeterMayus = searchValue !== ''
       ? searchValue[0].toUpperCase()+searchValue.substring(1) 
       : '';    
-      
     const newFilter = products.filter(product => product.mark.includes(firstLeterMayus) );
     
     setFilterProducts(newFilter);
