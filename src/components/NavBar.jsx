@@ -4,18 +4,39 @@ import DataContext from '../context/DataContext'
 
 const NavBar = () => {
 
-  const menuItems = ["Todo", "Hombre", "Mujer", "Infantil"]
+  const menuItems = [
+    {
+      name :"Todo",
+      id: 1
+    },
+    {
+      name :"Hombre",
+      id: 2
+    },
+    {
+      name :"Mujer",
+      id: 3
+    },
+    {
+      name :"Infantil",
+      id: 4
+    }
+  ]
   
   const { products, setFilterProducts } = useContext(DataContext)
+  const [isSelected, setIsSelected] = useState(1)
 
   const handleFilter = (e) => {
-    
+    setIsSelected(e.target.id)
+
     const filterGender = e.target.textContent
     const newFilterGender = products.filter(product => product.gender.includes(filterGender) )
     filterGender === 'Todo'
     ?setFilterProducts(products)
     :setFilterProducts(newFilterGender)
+    
   }
+  console.log(isSelected)
   
 
   return(
@@ -24,7 +45,7 @@ const NavBar = () => {
         {
           menuItems.map((item, index) =>{
             return(
-              <li className={styles.navLi} onClick={handleFilter} value={item} key={index} >{item}</li>
+              <li id={item.id} className={isSelected == item.id ? styles.navLiSelected : styles.navLi} onClick={handleFilter}  key={index} >{item.name}</li>
             )
           })
         }

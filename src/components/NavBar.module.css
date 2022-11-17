@@ -31,5 +31,20 @@
 }
 
 .navLiSelected{
-  color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 18px;
+  height: 40px;
+  list-style: none;
+  border-radius: 20px;
+  margin: 10px;
+  cursor: pointer;
+  border: 1px solid #FFF;
+  background-color: #FF6464;
+  color: #FFF;
+}
+
+.navLiSelected:hover{
+  box-shadow: 1px 1px 10px 1px #FF6464;
 }
