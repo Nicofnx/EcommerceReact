@@ -24,7 +24,7 @@ const Modal = () => {
   const [btngalleyImg, setBtnGalletyImg] = useState(0)
   const [sizeChose, setSizeChose] = useState(null)
   const [ {basket}, dispatch] = useStateValue()
-  
+  const idSize = id+sizeChose
 
   
 
@@ -55,27 +55,33 @@ const Modal = () => {
 
   
 
-  const addToBasket= (sizeChose) => {
+  const addToBasket= (sizeChose, id, idSize) => {
     
     if (sizeChose === null){
       alert('No ingreso un talle')
     }
     else {
-      dispatch({
-        type: actionTypes.ADD_TO_BASKET,
-        item: {
-          id,
-          mark,
-          sizeChose,
-          description,
-          price,
-          img,
-          number,
-        }
-      })
-      alert('Su pedido fue cargado con exito')
-      setNumber(1)
-      setModalOpen(false)
+      if(basket?.some(basketItem => basketItem.idSize === idSize) ){
+        alert('Producto ya agregado al carrito')
+      }else{
+        dispatch({
+          type: actionTypes.ADD_TO_BASKET,
+          item: {
+            idSize: id+sizeChose,
+            id,
+            mark,
+            sizeChose,
+            description,
+            price,
+            img,
+            number,
+          }
+        })
+        alert('Su pedido fue cargado con exito')
+        setNumber(1)
+        setModalOpen(false)
+        
+      }
     }
     
     
@@ -117,11 +123,12 @@ const Modal = () => {
           <div className={styles.sizeamount}>
               <div className={styles.size}>
                 <label>Talle:</label>
-                <select onChange={handleSizeSelect} name="sizes" id="sizes">
+                <select onChange={handleSizeSelect} name="sizes"id="sizes">
                 <option value={null}></option>
                   {
                     size.map(((size, index)=>{
-                      return <option key= {index} value={size}>{size}</option>
+                      return <option key= {index} value={`T${size}`}>{size}</option>
+                      
                     }))
                   }
                               
@@ -140,7 +147,7 @@ const Modal = () => {
               </div>
               <div className={styles.btns}>              
                 <Button 
-                  onClick = {()=>addToBasket(sizeChose)}                  
+                  onClick = {()=>addToBasket(sizeChose, id, idSize)}                  
                   mystyle='btnBuy'>
                   Agregar al carrito
                 </Button>

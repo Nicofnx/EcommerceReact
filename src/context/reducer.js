@@ -7,13 +7,15 @@ export const actionTypes = {
   ADD_TO_BASKET: 'ADD_TO_BASKET',
   ADD_TO_FAVORITES: 'ADD_TO_FAVORITES',
   DElETE_TO_BASKET: 'DELETE_TO_BASKET',
-  DElETE_TO_FAVORITES: 'DELETE_TO_FAVORITES'
+  DElETE_TO_FAVORITES: 'DELETE_TO_FAVORITES',
+  FINISH_BUY: 'FINISH_BUY'
 }
 
 const reducer = (state= initialState(), action={}) => {
   
   switch (action.type) {
     case 'ADD_TO_BASKET':
+      
       return{
         ...state,
         basket: [...state.basket, action.item]
@@ -27,13 +29,13 @@ const reducer = (state= initialState(), action={}) => {
         }
 
 
-    case 'DELETE_TO_BASKET':      
-      const indexBasket = state.basket.findIndex(basketItem=>basketItem.id === action.id)      
-      let newBasket = [...state.basket]
-   
-      indexBasket >= 0
-        ? newBasket.splice(indexBasket, 1)
-        : console.log('Error al eliminar el elemento')
+    case 'DELETE_TO_BASKET':
+      const filteredBasket = state.basket.filter(basketItem => basketItem.idSize !== action.idSize)
+      let newBasket = filteredBasket
+      console.log(filteredBasket)
+
+      
+      
       return{
         ...state,
         basket: newBasket
@@ -41,7 +43,7 @@ const reducer = (state= initialState(), action={}) => {
 
 
     case 'DELETE_TO_FAVORITES':      
-      const indexFavorite = state.favorites.findIndex(favoriteItem=>favoriteItem.id === action.id)      
+      const indexFavorite = state.favorites.findIndex(favoriteItem=>favoriteItem.id === action.id)
       let newFavorite = [...state.favorites]
        
       indexFavorite >= 0
@@ -51,7 +53,12 @@ const reducer = (state= initialState(), action={}) => {
         ...state,
         favorites: newFavorite
         }
-      
+    
+    case 'FINISH_BUY':
+      return{
+        ...state,
+        basket: []
+      }
   
     default: return state
       

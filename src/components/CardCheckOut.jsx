@@ -9,17 +9,19 @@ import { useStateValue } from '../context/BasketContext'
 
 
 const CardCheckOut = (props) => {
-
+  
   const [ {basket}, dispatch] = useStateValue()
-  const {id, img, mark, model, description, price, number } = props.basket
+  const {id, img, mark, model, description, price, number, sizeChose, idSize } = props.basket
   
-  
+  const sizeNumber = sizeChose.slice(1)
   
   
   const deleteItem = () => {
     dispatch({
       type: actionTypes.DElETE_TO_BASKET,
-      id
+      id,
+      sizeChose,
+      idSize,
     })
   }
 
@@ -37,6 +39,7 @@ const CardCheckOut = (props) => {
           <div>
             <p>Cantidad: {number}</p>
             <p>{accounting.formatMoney((price*number), '$', '.', '.', 0)}</p>
+            <p>Talle: {sizeNumber}</p>
           </div>
           <div className={styles.buttons}>
             <Button 

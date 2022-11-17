@@ -25,3 +25,11 @@
   cursor: pointer;
   border: 1px solid #FF6464;
 }
+
+.navLi:hover{
+  box-shadow: 1px 1px 10px 1px #FF6464;
+}
+
+.navLiSelected{
+  color: red;
+}

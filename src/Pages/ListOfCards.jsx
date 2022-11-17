@@ -7,6 +7,7 @@ import Modal from '../components/Modal/Modal';
 import DataContext from '../context/DataContext';
 import { actionTypes } from '../context/reducer'
 import BasketContext, { useStateValue } from '../context/BasketContext'
+import imgshow5 from '../imagenes/imgshow5.jpg'
 
 const ListOfCards = (props) => {
 
@@ -15,7 +16,7 @@ const ListOfCards = (props) => {
   const [spinner, setSpinner] = useState(false)
   const [isFavorite, setIsFavorite] = useState(false)
   //Contexto para habilitar el modal y setear productos
-  const {modalOpen,setProducts, setFilterProducts, filterProducts, setProductId} = useContext(DataContext)
+  const {modalOpen,setProducts, setFilterProducts, filterProducts, setProductId, filterGender, setFilterGender} = useContext(DataContext)
   
   const navigate = useNavigate()
 
@@ -56,6 +57,7 @@ const ListOfCards = (props) => {
       
         setProducts(data[0].results)
         setFilterProducts(data[0].results)
+        
         setSpinner(false)
       }
       catch(err) {
@@ -90,7 +92,8 @@ const ListOfCards = (props) => {
     
     <div className={styles.containerList}>
       
-      <aside className={styles.filters}>
+      <aside className={styles.imgshows}>
+        <img src={imgshow5} alt="" />
       </aside>
       <div className={styles.listCards}>
         
@@ -112,7 +115,9 @@ const ListOfCards = (props) => {
                   />
                 )
               })
-              :<h2>No Hay productos con la marca buscada</h2>
+              :<div className={styles.noProductTitle}>
+                <h2>No Hay productos con la marca o género buscado</h2>
+              </div>
         }
         
         

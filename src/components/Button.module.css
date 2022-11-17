@@ -22,11 +22,16 @@
   align-items: center;
   margin: 5px;
   cursor: pointer;
+  transition: all 200ms;
+}
+
+.btnFavorite:hover{
+  box-shadow: 1px 1px 10px 1px #FF6464;
 }
 
 .btnBuy {
   padding: 10px 30px;
-  
+  transition: all 200ms;
   border: none;
   border-radius: 25px;
   background-color: #FF6464;
@@ -35,6 +40,10 @@
   cursor: pointer;
   
 
+}
+
+.btnBuy:hover{
+  box-shadow: 1px 1px 10px 1px #FF6464;
 }
 
 .btnLogo {
