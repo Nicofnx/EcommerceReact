@@ -6,6 +6,7 @@ import { useLocation } from 'react-router-dom'
 import { actionTypes } from '../context/reducer'
 import { useStateValue } from '../context/BasketContext'
 import { useState, useEffect } from 'react'
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 
 const CheckOut = (props) => {
   const params = useLocation()
@@ -25,18 +26,30 @@ const CheckOut = (props) => {
     
   }, [basket])
   
-  const finishBuy = () => {
-    if(basket.length===0){
-      alert('No hay productos a comprar. Agregue productos al carrito')
-    }else{
-      dispatch({
-        type: actionTypes.FINISH_BUY,      
-      })
-      alert('Compra Finalizada, recibira un mail')
-      setAddPrice(0)
+ 
 
+  const finishBuy = () => {
+    const myOrder = {
+      user: {
+        name: 'Nicolas Rodriguez',
+        email: 'nicolasarielrodriguez@gmail.com'
+      },
+      items: basket,
+      total: addPrice,
     }
-  }
+    const db = getFirestore();
+    const orderCollection = collection(db, 'orders');
+    addDoc(orderCollection, myOrder)
+      .then(() => {
+        
+        dispatch({
+          type: actionTypes.FINISH_BUY,      
+        })
+        setAddPrice(0)
+        alert('Compra Finalizada, recibira un mail')
+        
+      })
+  };
 
   
 
@@ -67,6 +80,7 @@ const CheckOut = (props) => {
           </span> 
         </p>
         <Button
+          state = {basket.length===0 ? false : true}
           mystyle = 'btnBuy'
           onClick = {finishBuy}
         >

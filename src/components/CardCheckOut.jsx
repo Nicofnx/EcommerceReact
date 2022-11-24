@@ -12,7 +12,7 @@ const CardCheckOut = (props) => {
   
   const [ {basket}, dispatch] = useStateValue()
   const {id, img, mark, model, description, price, number, sizeChose, idSize } = props.basket
-  
+  console.log(mark)
   const sizeNumber = sizeChose.slice(1)
   
   
@@ -26,29 +26,34 @@ const CardCheckOut = (props) => {
   }
 
   return(
-    <div  className={styles.containerCard}>
-        <div  className={styles.containerImg}>
-          <img className={styles.imgCard} src={img.general} alt="zapatilla" />
-        </div>
-        <div  className={styles.marckAndDescription}>
-          <h3>{mark}</h3>
-          <h4>{model}</h4>
-          <p>{description}</p>
-        </div>
-        <div className={styles.containerbuttoms}>
-          <div>
-            <p>Cantidad: {number}</p>
-            <p>{accounting.formatMoney((price*number), '$', '.', '.', 0)}</p>
-            <p>Talle: {sizeNumber}</p>
+    <div  className={styles.container}>
+        <div  className={styles.containerCard}>
+          <div  className={styles.containerImg}>
+            <img className={styles.imgCard} src={img.general} alt="zapatilla" />
           </div>
-          <div className={styles.buttons}>
-            <Button 
-              id = {id}
-              onClick = {deleteItem}
-              mystyle='btnFavorite'>              
-              <FeatherIcon  size="34" className= 'logo'   icon="trash-2" />
-            </Button>
+          <div  className={styles.marckAndDescription}>
+            <div className={styles.markAndmodel}>
+              <h3>{mark}</h3>
+              <h4>{model}</h4>
+            </div>
+            <p>{description}</p>
           </div>
+          <div className={styles.containerbuttoms}>
+            <div>
+              <p>Cantidad: {number}</p>
+              <p>{accounting.formatMoney((price*number), '$', '.', '.', 0)}</p>
+              <p>Talle: {sizeNumber}</p>
+            </div>
+          </div>
+        </div>
+        <div className={styles.containerTrash}>
+          <Button 
+            id = {id}
+            onClick = {deleteItem}
+            mystyle='btnFavorite'>              
+            <FeatherIcon  size="34" className= 'logo'   icon="trash-2" />
+          </Button>
+
         </div>
         
       </div>

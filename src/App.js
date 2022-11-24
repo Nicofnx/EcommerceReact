@@ -15,19 +15,22 @@ import {
 import ListFavorites from './components/ListFavorites';
 
 
+const NotFound=()=> {
+  return <div>Ha llegado a una página que no existe</div>;
+}
 
 function App() {
 
   
 
   
-  
+
   return (
     <div className="App">
       <Router>
         <header>
-          <Header />      
-          <NavBar />  
+          <Header /> 
+          <NavBar/>   
         </header>
         <main>
           <Routes>
@@ -38,6 +41,9 @@ function App() {
             Carrito de compras
             </Route>
             <Route exact path="/detailspage/:detailsId" element={<DetailsPages />} />
+            <Route path="*" component={NotFound} >
+              página que no existe
+            </Route>
           </Routes>
           <ListFavorites />
         </main>

@@ -28,8 +28,8 @@ const ItemFavotire = ({item}) => {
       <Button 
         id = {id}
         onClick = {deleteItem}
-        mystyle='btnFavorite'>              
-        <FeatherIcon  size="34" className= 'logo'   icon="trash-2" />
+        mystyle='btnFavoriteDelete'>              
+        <FeatherIcon  size="24" className= 'logo'   icon="trash-2" />
       </Button>
     </div>
   )

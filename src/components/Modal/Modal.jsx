@@ -70,6 +70,7 @@ const Modal = () => {
             idSize: id+sizeChose,
             id,
             mark,
+            model,
             sizeChose,
             description,
             price,

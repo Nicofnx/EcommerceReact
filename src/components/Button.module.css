@@ -29,6 +29,24 @@
   box-shadow: 1px 1px 10px 1px #FF6464;
 }
 
+.btnFavoriteDelete {
+  border-radius: 50%;
+  border: none;
+  background-color: #FF6464;
+  color:#f6f6f6;
+  padding: 7px 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  cursor: pointer;
+  transition: all 200ms;
+}
+
+.btnFavoriteDelete:hover{
+  box-shadow: 1px 1px 10px 1px #FF6464;
+}
+
 .btnBuy {
   padding: 10px 30px;
   transition: all 200ms;
@@ -38,6 +56,20 @@
   color: #f6f6f6;
   font-size: 18px;
   cursor: pointer;
+  
+  
+
+}
+.disable {
+  padding: 10px 30px;
+  transition: all 200ms;
+  border: none;
+  border-radius: 25px;
+  background-color: #494949;
+  color: #f6f6f6;
+  font-size: 18px;
+  cursor: not-allowed;
+  
   
 
 }

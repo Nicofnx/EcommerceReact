@@ -24,6 +24,9 @@
   margin: 10px;
   cursor: pointer;
   border: 1px solid #FF6464;
+  transition-property: initial;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
 }
 
 .navLi:hover{
@@ -43,6 +46,9 @@
   border: 1px solid #FFF;
   background-color: #FF6464;
   color: #FFF;
+  transition-property: initial;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
 }
 
 .navLiSelected:hover{

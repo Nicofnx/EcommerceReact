@@ -5,22 +5,25 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect, useState, useContext } from 'react'
 import Modal from '../components/Modal/Modal';
 import DataContext from '../context/DataContext';
-import { actionTypes } from '../context/reducer'
-import BasketContext, { useStateValue } from '../context/BasketContext'
-import imgshow5 from '../imagenes/imgshow5.jpg'
 
-const ListOfCards = (props) => {
+import  { useStateValue } from '../context/BasketContext'
+import imgshow5 from '../imagenes/imgshow5.jpg'
+import { getFirestore, collection, getDocs} from 'firebase/firestore'
+
+
+const ListOfCards = () => {
 
   
   //Estadi para setear on u off el spinner mientras se carga la data
   const [spinner, setSpinner] = useState(false)
-  const [isFavorite, setIsFavorite] = useState(false)
+  //Categorias de firebase
+  
   //Contexto para habilitar el modal y setear productos
-  const {modalOpen,setProducts, setFilterProducts, filterProducts, setProductId, filterGender, setFilterGender} = useContext(DataContext)
+  const {modalOpen,setProducts, setAllCategories, setFilterProducts, filterProducts, setProductId, filterGender, setFilterGender} = useContext(DataContext)
   
   const navigate = useNavigate()
 
-  const [ {favorites}, dispatch] = useStateValue()
+  const [ {favorites}] = useStateValue()
 
   //Efecto donde por medio de una promise realizo el llamado al "servidor"
   /* useEffect(() => {
@@ -45,30 +48,38 @@ const ListOfCards = (props) => {
 
 
   //Llamada a un servidor externo usando una async function.
-  useEffect(() => {
+  useEffect(() => {  
     setSpinner(true)
     const controller = new AbortController()
     const { signal } = controller
-    const getData = async () =>{
-      
-      try{
-        const resp = await fetch("https://636276ef37f2167d6f65171a.mockapi.io/datazapa", {signal})
-        const data = await resp.json()
-      
-        setProducts(data[0].results)
-        setFilterProducts(data[0].results)
-        
+    
+    const db = getFirestore()
+    const getProductsCollection = collection(db, 'productos')
+    const getCategoriesCollection = collection(db, 'categories')
+
+      const getDataFiresbase = async () => {
+        try{
+          const resp = await getDocs(getProductsCollection, {signal})
+          const data = await resp.docs.map((doc)=>({id: doc.id, ...doc.data()}))
+          const resp2 = await getDocs(getCategoriesCollection, {signal})
+          const data2 = await resp2.docs.map((doc)=>({id: doc.id, ...doc.data()}))
+
+
+          setProducts(data)
+          setAllCategories(data2)
+          setFilterProducts(data)
+          
+        }
+        catch(err) {
+          if (err.name !== 'AbortError') {
+          console.error(err.message)
+          }
+        }
         setSpinner(false)
       }
-      catch(err) {
-        if (err.name !== 'AbortError') {
-        console.error(err.message)
-        }
-      }
-    }
-    
-    getData()
+    getDataFiresbase()
     return () => controller.abort()
+    
   }, [setProducts, setFilterProducts])
   
   
@@ -79,19 +90,13 @@ const ListOfCards = (props) => {
 }
 
   
- /*  const prueba = (item) => {  
-    const favorite = favorites.some(favoriteItem => favoriteItem.id === item.id)
-    console.log(favorite)
-    setIsFavorite(favorite)
-    
-    
-  } */
+
   
   return(
     <>
     
     <div className={styles.containerList}>
-      
+    
       <aside className={styles.imgshows}>
         <img src={imgshow5} alt="" />
       </aside>
@@ -116,7 +121,7 @@ const ListOfCards = (props) => {
                 )
               })
               :<div className={styles.noProductTitle}>
-                <h2>No Hay productos con la marca o género buscado</h2>
+                <h2>No hay productos con la marca o género buscado</h2>
               </div>
         }
         

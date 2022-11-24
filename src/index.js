@@ -5,6 +5,9 @@ import App from './App';
 import { DataProvider } from './context/DataContext'
 import reducer, { initialState } from './context/reducer'
 import {BasketProvider} from './context/BasketContext'
+import './firebase'
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

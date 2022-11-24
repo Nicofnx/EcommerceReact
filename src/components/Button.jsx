@@ -2,11 +2,13 @@ import styles from './Button.module.css'
 
 const Button = (props) => {
 
-  const {children, mystyle, onClick} = props
+  const {children, mystyle, onClick, state= true} = props
   
 
+
+
   return(
-    <button onClick={onClick} className={styles[mystyle]}>{children}</button>
+    <button onClick={onClick} disabled={!state} className={state  ?styles[mystyle] :styles.disable}>{children}</button>
   )
 }
 

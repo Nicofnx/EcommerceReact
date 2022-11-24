@@ -1,51 +1,52 @@
 import styles from "./NavBar.module.css"
 import { useState, useContext } from "react"
 import DataContext from '../context/DataContext'
+import { getFirestore, collection, getDocs, where, query} from 'firebase/firestore'
 
 const NavBar = () => {
-
-  const menuItems = [
-    {
-      name :"Todo",
-      id: 1
-    },
-    {
-      name :"Hombre",
-      id: 2
-    },
-    {
-      name :"Mujer",
-      id: 3
-    },
-    {
-      name :"Infantil",
-      id: 4
-    }
-  ]
   
-  const { products, setFilterProducts } = useContext(DataContext)
+  const { products, setFilterProducts,allCategories } = useContext(DataContext)
   const [isSelected, setIsSelected] = useState(1)
-
-  const handleFilter = (e) => {
-    setIsSelected(e.target.id)
-
-    const filterGender = e.target.textContent
-    const newFilterGender = products.filter(product => product.gender.includes(filterGender) )
-    filterGender === 'Todo'
-    ?setFilterProducts(products)
-    :setFilterProducts(newFilterGender)
-    
-  }
-  console.log(isSelected)
   
+
+ 
+  
+  const onFilter = (e, categorygender) => {
+    
+    setIsSelected(e.target.id)
+    const db = getFirestore();
+    const q =  query(
+      collection(db, 'productos'),
+      where('gender', '==', categorygender)
+    );
+    
+    getDocs(q)
+      .then((snapshot) => {
+        if(snapshot.size === 0) {
+          setFilterProducts([]);
+          ;
+        }
+        const productsFilter = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data()}));
+        categorygender === 'Todo'
+        ?setFilterProducts(products)
+        :setFilterProducts(productsFilter)
+        
+      })
+      .catch((error) => {
+        console.log('error', error);
+      });
+  }
+  
+
 
   return(
     <div  className={styles.containerNav}>
       <ul className={styles.navUl}>      
         {
-          menuItems.map((item, index) =>{
+          allCategories.map((item) =>{
+            const {id, categorygender} = item
             return(
-              <li id={item.id} className={isSelected == item.id ? styles.navLiSelected : styles.navLi} onClick={handleFilter}  key={index} >{item.name}</li>
+              <li id={id} className={isSelected == id ? styles.navLiSelected : styles.navLi} onClick={(e)=>onFilter(e, categorygender)}  key={id} >{categorygender}</li>
             )
           })
         }

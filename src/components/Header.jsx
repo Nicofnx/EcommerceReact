@@ -9,12 +9,16 @@ import logomarck from '../imagenes/RuNstylesLogo.png'
 import { useStateValue } from '../context/BasketContext'
 import DataContext from '../context/DataContext'
 import { useCallback, useContext} from 'react';
+import Banner from './Banner';
+import { useEffect, useState } from 'react';
+
+
 
 const Header = () => {
 
   const [ {basket} ] = useStateValue()
   const { products, setFilterProducts, isActiveFavorites, setIsActiveFavorites } = useContext(DataContext)
-  
+  const [numberOfItems, setNumberOfItems] = useState(0)
 
   const debounce = (func, wait) => {
     let timeout;
@@ -29,6 +33,19 @@ const Header = () => {
         timeout = setTimeout(later, wait);
     }
 }
+
+  
+
+  useEffect(()=>{
+    let numberItems = []
+    basket.map((item)=>{
+      numberItems.push(item.number)
+    })
+    let total = numberItems.reduce((a, b) => a + b, 0)
+    setNumberOfItems(total)
+
+  },[basket])
+  
 
   const onHandleChange = useCallback(debounce((e) => {    
     const searchValue = e.target.value.toLowerCase();    
@@ -47,6 +64,7 @@ const Header = () => {
 
   return(
     <div className={styles.headerBox}>
+      <Banner />
       <div className={styles.containerHeader}>
       <div className={styles.boxs}>
         <NavLink to='/'>
@@ -76,7 +94,7 @@ const Header = () => {
           <div className={styles.containerCart}>
           <NavLink to='/checkout-page' className={styles.logo}>
             <CartWidget 
-              number = {basket.length}
+              number = {numberOfItems}
             />   
           </NavLink>
           <h4 className={styles.titleLogo}>Compras</h4>

@@ -13,6 +13,7 @@
   border: 1px solid #FF6464;
   border-radius: 10px;
   overflow-y: auto;
+  box-shadow: 1px 1px 10px 1px #FF6464;
 }
 
 .container {
@@ -30,5 +31,16 @@
   border: 1px solid #FF6464;
   border-radius: 10px;
   overflow-y: auto;
+  box-shadow: 1px 1px 10px 1px #FF6464;
   
+}
+
+.titleFav {
+  padding: 10px;
+  background-color:#FF6464 ;
+  color: #fff
+}
+
+.titleNoProducts{
+  padding: 15px 5px;
 }

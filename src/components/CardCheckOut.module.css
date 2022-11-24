@@ -1,28 +1,77 @@
-.containerCard {
-  max-width:100%;
+.container {
+  
   margin: 20px 40px ;
-  height: 200px;
+  min-height: 200px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+  position: relative;
+  flex: 1;
+  
+  background-color: #fff;
+  cursor: pointer;
+  
+}
+
+.container:hover .containerCard{
+  transform: translateX(-80px);
+  
+}
+
+.containerCard {
+  
+  position: relative;
+  min-height: 200px;
   display: flex;
   justify-content: space-between;
   border: 1px solid #FF6464;
   border-radius: 10px;
-  
+  top: 0;
+  left: 0;
   padding: 8px;
   background-color: #fff;
   cursor: pointer;
+  z-index: 200;
+  transition: transform 200ms ease-in-out;
 }
 
-.containerImg {
-  height: 150px;
+
+
+
+.containerTrash{
+  
   width: 100%;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  justify-content: flex-end;
+  align-items: center;
+  border: 1px solid #FF6464;
+  border-radius: 10px;
+  padding: 8px;
+  background-color: #363636;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.containerTrash button {
+  height: 50px;
+  
+}
+
+
+
+.containerImg {
+  
+  
   overflow: hidden;
   min-width: 300px;
   
 }
 
 .imgCard {
-  width: 100%;
-  height: 150px;
+  
+  height: 200px;
   object-fit: cover;
   object-position: center;
 }
@@ -36,13 +85,18 @@
   
 
 }
+.markAndmodel{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-.marckAndDescription h3 {
+.markAndmodel h3 {
   margin: 2px;
   padding: 5px;
 }
 
-.marckAndDescription h4 {
+.markAndmodel h4 {
   margin: 2px;
   padding: 5px;
 }
@@ -70,7 +124,7 @@
   font-size: 22px;
   font-weight: bold;
   margin: 10px;
-  width: 150px;
+  width: 120px;
 }
 
 .buttons {
