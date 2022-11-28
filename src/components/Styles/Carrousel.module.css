@@ -1,0 +1,19 @@
+.imgShow {
+  height: 100%;
+  object-fit: contain;
+  animation: moveImg 3s ease-in-out ;
+  animation-fill-mode: forwards;
+  object-position: -100px;
+  
+}
+
+@keyframes moveImg {
+  0% {
+    object-position: 0px;
+  }
+  100%{
+    object-position: -100px;
+  }
+  
+}
+

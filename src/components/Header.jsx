@@ -1,7 +1,7 @@
 import FeatherIcon from 'feather-icons-react'
 import Button from './Button'
 import CartWidget from './CartWidget'
-import styles from './Header.module.css'
+import styles from './Styles/Header.module.css'
 import {
   NavLink
 } from "react-router-dom";

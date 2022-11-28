@@ -1,4 +1,4 @@
-import styles from './Card.module.css'
+import styles from './Styles/Card.module.css'
 import FeatherIcon from 'feather-icons-react'
 import Button from './Button'
 import { memo, useContext } from 'react'

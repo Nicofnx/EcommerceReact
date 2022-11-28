@@ -1,6 +1,6 @@
-import { useState, useContext } from "react"
+import { useContext } from "react"
 import Button from "./Button"
-import styles from "./ItemsCount.module.css"
+import styles from "./Styles/ItemsCount.module.css"
 import DataContext from '../context/DataContext'
 
 const ItemsCount = (props) => {

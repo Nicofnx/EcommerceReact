@@ -1,5 +1,5 @@
 import FeatherIcon from 'feather-icons-react'
-import styles from './CartWidget.module.css'
+import styles from './Styles/CartWidget.module.css'
 import { useLocation } from 'react-router-dom'
 
 const CartWidget = (props) => {

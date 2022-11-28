@@ -1,7 +1,7 @@
 import Button from './Button'
 import accounting from 'accounting'
 import FeatherIcon from 'feather-icons-react'
-import styles from './CardCheckOut.module.css'
+import styles from './Styles/CardCheckOut.module.css'
 
 
 import { actionTypes } from '../context/reducer'
@@ -12,7 +12,6 @@ const CardCheckOut = (props) => {
   
   const [ {basket}, dispatch] = useStateValue()
   const {id, img, mark, model, description, price, number, sizeChose, idSize } = props.basket
-  console.log(mark)
   const sizeNumber = sizeChose.slice(1)
   
   

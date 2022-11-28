@@ -1,6 +1,7 @@
 
 
 .containerList {
+  width: 100%;
   max-width: 1440px;
   margin: auto;
   display: grid;
@@ -20,32 +21,20 @@
   border-radius: 10px;
   margin: 10px;
   overflow: hidden;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  
   
 }
 
-.imgshows img {
-  height: 100%;
-  object-fit: cover;
-  animation: moveImg 15s ease-in-out ;
-  animation-fill-mode: forwards
-  
-}
 
-@keyframes moveImg {
-  0% {
-    object-position: 0px;
-  }
-  100%{
-    object-position: -400px;
-  }
-  
-}
 
 .listCards {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  height: 400px;
+  align-content: flex-start;
 }
 
 .noProductTitle{

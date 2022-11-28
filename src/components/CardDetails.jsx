@@ -1,11 +1,9 @@
-import Button from './Button'
-import styles from './CardDetails.module.css'
+import styles from './Styles/CardDetails.module.css'
 import BtnSelectImg from './Modal/BtnSelectImg'
 import accounting from 'accounting'
-import FeatherIcon from 'feather-icons-react'
-import { useState } from 'react'
-
-
+import { useState, useEffect, useContext } from 'react'
+import DataContext from '../context/DataContext'
+import Button from './Button'
 
 const imagesIndex = {
   0: 'general',
@@ -14,23 +12,23 @@ const imagesIndex = {
 }
 
 const CardDetails = ({item}) => {
+  
 
-  const [fav, setFav] = useState(false)  
+  
   
   const {id, mark, model, description, price, stock, img} = item
+ 
+  const { setInfoModal, setModalOpen} = useContext(DataContext)
   const [imgShow, setImgShow] = useState(img[imagesIndex[0]])
   const [btngalleyImg, setBtnGalletyImg] = useState(0)
 
-
+  
+  useEffect(() => {
+    setImgShow(img[imagesIndex[0]])    
+  }, [img])
+  
   
 
-  
-
-
-   
- 
-
-  
   
   const changeSelected = ({id}) =>{
     setBtnGalletyImg(id)
@@ -39,12 +37,14 @@ const CardDetails = ({item}) => {
     
   }
 
+  const dataToModal = (data) => {
+    setInfoModal(data)
+    setModalOpen(true)
+    
+    
+  }
 
-  
 
-  
-
-  
   
 
   return (
@@ -85,6 +85,13 @@ const CardDetails = ({item}) => {
               </div>
               <div className={styles.btns}>
                 <p className={styles.description}>Quedan solo {stock} en Stock!</p>
+                <Button 
+                  id = {id}
+                  mystyle='btnBuy'
+                  onClick={()=>{dataToModal(item)}}
+                  >
+                  Comprar
+                </Button>
               </div>
         </div>
       </div>

@@ -1,14 +1,23 @@
 
-import styles from './ListFavorites.module.css'
+import styles from './Styles/ListFavorites.module.css'
 import { useStateValue } from '../context/BasketContext'
 import DataContext from '../context/DataContext'
 import { useContext } from 'react'
 import ItemFavotire from './ItemFavorite'
+import { useNavigate } from 'react-router-dom';
+
 
 const ListFavorites = () => {
 
   const [ {favorites} ] = useStateValue()
-  const {isActiveFavorites} = useContext(DataContext)
+  const {isActiveFavorites, setProductId} = useContext(DataContext)
+  const navigate = useNavigate()
+  
+
+  const handleDetail = (id) => {
+    setProductId(id)
+    navigate(`/detailspage/${id}`);
+}
 
   return(
     <div className={isActiveFavorites ? styles.container : styles.none}>
@@ -21,6 +30,7 @@ const ListFavorites = () => {
               <ItemFavotire 
                 key = { el.id }
                 item = {el}
+                goToDetails={handleDetail}
               />
 
               

@@ -1,4 +1,4 @@
-import styles from './CheckOut.module.css'
+import styles from './Styles/CheckOut.module.css'
 import accounting from 'accounting'
 import CardCheckOut from '../components/CardCheckOut'
 import Button from '../components/Button'

@@ -1,4 +1,4 @@
-import styles from './ItemFavorite.module.css'
+import styles from './Styles/ItemFavorite.module.css'
 import { actionTypes } from '../context/reducer'
 import { useStateValue } from '../context/BasketContext'
 import Button from './Button'
@@ -6,7 +6,7 @@ import FeatherIcon from 'feather-icons-react'
 import { useContext } from 'react'
 import DataContext from '../context/DataContext'
 
-const ItemFavotire = ({item}) => {
+const ItemFavotire = ({item, goToDetails}) => {
   
   const {id, img, mark, model} = item
   const [ {basket}, dispatch] = useStateValue()
@@ -22,9 +22,11 @@ const ItemFavotire = ({item}) => {
  
   return(
     <div className={styles.container}>
-      <img className={styles.imgfavorite} src={img.general} alt='imagen zapatilla' />
-      <p>{mark}</p>
-      <p>{model}</p>
+      <div className={styles.containerData} onClick={()=>goToDetails(id)}>
+        <img className={styles.imgfavorite} src={img.general} alt='imagen zapatilla' />
+        <p>{mark}</p>
+        <p>{model}</p>
+      </div>
       <Button 
         id = {id}
         onClick = {deleteItem}

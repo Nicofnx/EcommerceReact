@@ -3,7 +3,7 @@ import styles from './Modal.module.css'
 import BtnSelectImg from './BtnSelectImg'
 import accounting from 'accounting'
 
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import ItemsCount from '../ItemsCount'
 import DataContext from '../../context/DataContext'
 import { actionTypes } from '../../context/reducer'
@@ -25,6 +25,7 @@ const Modal = () => {
   const [sizeChose, setSizeChose] = useState(null)
   const [ {basket}, dispatch] = useStateValue()
   const idSize = id+sizeChose
+  const [buyDisable, setBuyDisable] = useState(true)
 
   
 
@@ -57,10 +58,7 @@ const Modal = () => {
 
   const addToBasket= (sizeChose, id, idSize) => {
     
-    if (sizeChose === null){
-      alert('No ingreso un talle')
-    }
-    else {
+      
       if(basket?.some(basketItem => basketItem.idSize === idSize) ){
         alert('Producto ya agregado al carrito')
       }else{
@@ -83,10 +81,20 @@ const Modal = () => {
         setModalOpen(false)
         
       }
-    }
+    
     
     
   }
+
+ 
+
+
+  useEffect(() => {
+    if(sizeChose === null|| sizeChose ==='' || basket?.some(basketItem => basketItem.idSize === idSize)){
+      setBuyDisable(false) 
+    }else{ setBuyDisable(true)}
+  }, [sizeChose])
+  
   
 
   return (
@@ -132,8 +140,9 @@ const Modal = () => {
                       
                     }))
                   }
-                              
-                </select>   
+
+                </select>
+                {(sizeChose === null|| sizeChose ==='')?<p className={styles.warning}>Indique talle</p>:null}
               </div>
               <div className={styles.amount}>
                 <ItemsCount
@@ -146,10 +155,13 @@ const Modal = () => {
           <div className={styles.description}>
                 <p>{description}</p>
               </div>
-              <div className={styles.btns}>              
+              <div className={styles.btns}>
+              {basket?.some(basketItem => basketItem.idSize === idSize)?<p className={styles.warning}>Producto ya agregado</p>:null}              
                 <Button 
                   onClick = {()=>addToBasket(sizeChose, id, idSize)}                  
-                  mystyle='btnBuy'>
+                  mystyle='btnBuy'
+                  state = {buyDisable}
+                  >
                   Agregar al carrito
                 </Button>
               </div>

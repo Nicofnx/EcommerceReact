@@ -1,7 +1,8 @@
-import styles from "./NavBar.module.css"
+import styles from "./Styles/NavBar.module.css"
 import { useState, useContext } from "react"
 import DataContext from '../context/DataContext'
 import { getFirestore, collection, getDocs, where, query} from 'firebase/firestore'
+import { getCategoryFilters } from '../services/getDataFirebase'
 
 const NavBar = () => {
   
@@ -9,32 +10,27 @@ const NavBar = () => {
   const [isSelected, setIsSelected] = useState(1)
   
 
- 
+  
   
   const onFilter = (e, categorygender) => {
     
     setIsSelected(e.target.id)
-    const db = getFirestore();
-    const q =  query(
-      collection(db, 'productos'),
-      where('gender', '==', categorygender)
-    );
-    
-    getDocs(q)
-      .then((snapshot) => {
-        if(snapshot.size === 0) {
-          setFilterProducts([]);
-          ;
-        }
-        const productsFilter = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data()}));
-        categorygender === 'Todo'
-        ?setFilterProducts(products)
-        :setFilterProducts(productsFilter)
-        
-      })
-      .catch((error) => {
-        console.log('error', error);
-      });
+
+    getCategoryFilters(categorygender)
+    .then((snapshot) => {
+      if(snapshot.size === 0) {
+        setFilterProducts([]);
+        ;
+      }
+      const productsFilter = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data()}));
+      categorygender === 'Todo'
+      ?setFilterProducts(products)
+      :setFilterProducts(productsFilter)
+      
+    })
+    .catch((error) => {
+      console.log('error', error);
+    });
   }
   
 
