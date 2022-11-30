@@ -8,21 +8,11 @@
   
 }
 
-aside {
-  display: none;
-}
+
 
 
 .imgshows {
-  
-  grid-area: filters;
-  border-radius: 10px;
-  margin: 10px;
-  overflow: hidden;
-  height: 100vh;
-  position: sticky;
-  top: 0;
-  
+  display: none;
   
 }
 
@@ -63,12 +53,10 @@ aside {
     
   }
   
-  aside {
-    display: block;
-  }
+
   
   .imgshows {
-    
+    display: block;
     grid-area: filters;
     border-radius: 10px;
     margin: 10px;
