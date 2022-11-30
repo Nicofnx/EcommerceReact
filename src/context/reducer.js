@@ -1,8 +1,17 @@
 let favoritesInLocal = JSON.parse(localStorage.getItem('favorites'))
 
+const getFavoritesInLocal = ()=>{
+  if(favoritesInLocal){
+    return favoritesInLocal
+  }else{
+    return []
+  }
+}
+
+
 export const initialState = {
   basket: [],
-  favorites: favoritesInLocal
+  favorites: getFavoritesInLocal()
 }
 
 export const actionTypes = {
