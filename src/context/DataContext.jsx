@@ -6,6 +6,8 @@ const DataProvider = ({children}) => {
 
   const [infoModal, setInfoModal] = useState(null)
   const [modalOpen, setModalOpen] = useState(false)
+  const [infoModalBuy, setInfoModalBuy] = useState(null)
+  const [modalOpenBuy, setModalOpenBuy] = useState(false)
   const [isActiveImgModal, setIsActiveImgModal] = useState(true)
   const [number, setNumber] = useState(1)
   const [products, setProducts] = useState([])
@@ -23,7 +25,9 @@ const DataProvider = ({children}) => {
     fav, setFav, 
     filterProducts, setFilterProducts, 
     infoModal, setInfoModal,
-    modalOpen, setModalOpen, 
+    modalOpen, setModalOpen,
+    infoModalBuy, setInfoModalBuy,
+    modalOpenBuy, setModalOpenBuy,
     isActiveImgModal, setIsActiveImgModal, 
     number, setNumber,
     isActiveFavorites, setIsActiveFavorites,

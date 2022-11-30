@@ -1,7 +1,7 @@
 import styles from './Styles/Card.module.css'
 import FeatherIcon from 'feather-icons-react'
 import Button from './Button'
-import { memo, useContext } from 'react'
+import { memo, useContext, useEffect} from 'react'
 import accounting from 'accounting'
 import DataContext from '../context/DataContext'
 import { actionTypes } from '../context/reducer'
@@ -32,17 +32,27 @@ const Card = ({item, goToDetails, isFavorite}) => {
           
         }
       })
+     
     }else {
       
       dispatch({
         type: actionTypes.DElETE_TO_FAVORITES,
         id
       })
+      
     }
 
     
     
   }
+
+  useEffect(() => {
+    localStorage.setItem('favorites', JSON.stringify(favorites))
+    
+  }, [favorites])
+
+  
+  
   
   
   const dataToModal = (data) => {

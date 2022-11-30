@@ -1,6 +1,8 @@
+let favoritesInLocal = JSON.parse(localStorage.getItem('favorites'))
+
 export const initialState = {
   basket: [],
-  favorites: []
+  favorites: favoritesInLocal
 }
 
 export const actionTypes = {
@@ -26,6 +28,7 @@ const reducer = (state= initialState(), action={}) => {
       return{
         ...state,
         favorites: [...state.favorites, action.item]
+        
         }
 
 

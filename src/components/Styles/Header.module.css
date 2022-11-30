@@ -1,14 +1,94 @@
 
+.headerBox {
+    width: 100%;
+    border-bottom: 2px solid #f48585;
+    
+  }
 
-.btnSearch {
-  display: none;
-}
+  .containerHeader {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+  
+  .boxs {
+    
+    width: 100%;
+    
+  }
 
-.logo{
-  display: none;
-}
+  .titlemark{
+    width: 250px;
+    margin: 5px;
+    text-decoration:none;
+    color: white;
+    
+  }
 
-@media (min-width: 500px) {
+  .boxLogos {
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+  }
+
+
+  
+  .boxSearch {
+    position: relative;
+    margin: 5px 1rem;
+  }
+  
+  .inputHeader {
+    
+    width: 100%;
+    height: 35px;
+    padding: 5px 40px 5px 12px;
+    font-size: 18px;
+    border-radius: 15px;
+    border: 2px solid #f48585;
+    outline-style: none;
+    
+  }
+  
+  
+  
+  .logo {
+    width: 28px;
+    height: 28px;
+    margin: 10px;
+    display: block;
+    cursor: pointer;
+    color: #000;
+    transition: all 200ms ease-in-out;
+    
+  }
+
+  .logoIsAvtive {
+    width: 28px;
+    height: 28px;
+    margin: 10px;
+    display: block;
+    cursor: pointer;
+    color: #FF6464;
+    transition: all 200ms ease-in-out;
+  }
+
+  .logo:hover {
+    color:  #FF6464;
+    
+    
+  }
+
+
+
+
+
+@media (min-width: 400px) {
 
   .headerBox {
     width: 100%;
@@ -24,12 +104,20 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    flex-direction: row;
     color: white;
   }
   
   .boxs {
-    
     width: 100%;
+    
+  }
+
+  .boxLogos {
+    display: flex;  
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
     
   }
 
@@ -47,7 +135,7 @@
   
   .inputHeader {
     
-    width: 100%;
+    
     height: 40px;
     padding: 5px 40px 5px 12px;
     font-size: 18px;
@@ -59,18 +147,13 @@
   
   
   
-  .boxLogos {
-    display: flex;  
-    justify-content: flex-end;
-    align-items: center;
-    position: relative;
-    
-  }
+  
 
   
   
   .logo {
-    
+    width: 34px;
+    height: 34px;
     margin: 10px;
     display: block;
     cursor: pointer;
@@ -80,6 +163,8 @@
   }
 
   .logoIsAvtive {
+    width: 34px;
+    height: 34px;
     margin: 10px;
     display: block;
     cursor: pointer;
@@ -94,22 +179,6 @@
   }
 
   
-
-
-
-  .titleLogo {
-    display: none;
-    position: absolute;
-    bottom: -10px;
-    font-size: 16px;
-    color: #FF6464;
-    transition: all 200ms ease-in-out;
-    
-  }
-
-  .logo:hover .titleLogo {
-    display: block;
-    
-  }
+ 
   
 }

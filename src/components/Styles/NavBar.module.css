@@ -1,56 +1,111 @@
 
+  .navUl {
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    margin: 25px 0;
+    
+    }
 
-
-.navUl {
-  display: flex;
-  
-  justify-content: center ;
-  align-items: center;
-  width: 100%;
-  flex-wrap: wrap;
-  margin: 25px 0;
-  
+  .navLi {  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFF;
+    padding: 15px 12px;
+    height: 30px;
+    list-style: none;
+    border-radius: 20px;
+    margin: 7px;
+    cursor: pointer;
+    border: 1px solid #FF6464;
+    font-size: 14px;
+    transition-property: initial;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
   }
 
-.navLi {  
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #FFF;
-  padding: 20px 18px;
-  height: 40px;
-  list-style: none;
-  border-radius: 20px;
-  margin: 10px;
-  cursor: pointer;
-  border: 1px solid #FF6464;
-  transition-property: initial;
-  transition-duration: 0.3s;
-  transition-timing-function: ease;
-}
+  .navLi:hover{
+    box-shadow: 1px 1px 10px 1px #FF6464;
+  }
 
-.navLi:hover{
-  box-shadow: 1px 1px 10px 1px #FF6464;
-}
+  .navLiSelected{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 12px;
+    height: 30px;
+    list-style: none;
+    border-radius: 20px;
+    margin: 10px;
+    cursor: pointer;
+    border: 1px solid #FFF;
+    background-color: #FF6464;
+    font-size: 14px;
+    color: #FFF;
+    transition-property: initial;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+  }
 
-.navLiSelected{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px 18px;
-  height: 40px;
-  list-style: none;
-  border-radius: 20px;
-  margin: 10px;
-  cursor: pointer;
-  border: 1px solid #FFF;
-  background-color: #FF6464;
-  color: #FFF;
-  transition-property: initial;
-  transition-duration: 0.3s;
-  transition-timing-function: ease;
-}
+  .navLiSelected:hover{
+    box-shadow: 1px 1px 10px 1px #FF6464;
+  }
 
-.navLiSelected:hover{
-  box-shadow: 1px 1px 10px 1px #FF6464;
+@media (min-width: 400px) {
+
+  .navUl {
+    display: flex;
+    
+    justify-content: center ;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    margin: 25px 0;
+    
+    }
+
+  .navLi {  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFF;
+    padding: 20px 18px;
+    height: 40px;
+    list-style: none;
+    border-radius: 20px;
+    margin: 10px;
+    cursor: pointer;
+    border: 1px solid #FF6464;
+    transition-property: initial;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+  }
+
+  .navLi:hover{
+    box-shadow: 1px 1px 10px 1px #FF6464;
+  }
+
+  .navLiSelected{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 18px;
+    height: 40px;
+    list-style: none;
+    border-radius: 20px;
+    margin: 10px;
+    cursor: pointer;
+    border: 1px solid #FFF;
+    background-color: #FF6464;
+    color: #FFF;
+    transition-property: initial;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+  }
+
+  .navLiSelected:hover{
+    box-shadow: 1px 1px 10px 1px #FF6464;
+  }
+
 }

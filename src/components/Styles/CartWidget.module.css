@@ -6,7 +6,8 @@
 }
 
 .logo {
-    
+  width: 28px;
+  height: 28px;
   margin: 5px;
   display: block;
   cursor: pointer;
@@ -15,7 +16,8 @@
   
 }
 .logoIsActive {
-    
+  width: 28px;
+  height: 28px;
   margin: 5px;
   display: block;
   cursor: pointer;
@@ -26,7 +28,7 @@
 
 .logo:hover {
   color:  #FF6464;
-  transform: scale(1.1);
+  
   
 }
 
@@ -36,13 +38,67 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  right: 0;
+  right: -10px;
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   background-color: #FF6464;  
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
+  font-size: 14px;
+}
+
+@media (min-width: 400px) {
+  .containercart {
+    position: relative;
+    color: #000;
+    cursor: pointer;
+    
+  }
+  
+  .logo {
+    width: 36px;
+    height: 36px;
+    margin: 5px;
+    display: block;
+    cursor: pointer;
+    color: #000;
+    transition: all 200ms ease-in-out;
+    
+  }
+  .logoIsActive {
+    width: 36px;
+    height: 36px;
+    margin: 5px;
+    display: block;
+    cursor: pointer;
+    color: #FF6464;
+    transition: all 200ms ease-in-out;
+    
+  }
+  
+  .logo:hover {
+    color:  #FF6464;
+    transform: scale(1.1);
+    
+  }
+  
+  
+  
+  .bubble {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: #FF6464;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+  }
 }

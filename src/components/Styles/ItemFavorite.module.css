@@ -1,6 +1,7 @@
+
 .container {
-  
-  height: 100px;
+    
+  height: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -35,7 +36,52 @@
 }
 
 .container .containerData p {
-  font-size: 18px;
-  padding: 20px;
+  font-size: 16px;
+  padding: 15px;
   color: #FF6464;
+}
+
+@media (min-width: 400px) {
+
+  .container {
+    
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #FF6464;
+    border-radius: 7px;
+    padding: 10px;
+    margin: 10px;
+    transition: all 200ms ease-in;
+  }
+  
+  .containerData {
+    
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    
+  }
+  .container:hover {
+    
+    cursor: pointer;
+    color: #fff;
+    box-shadow: 1px 1px 10px 5px #FF6464;
+  
+    
+  }
+  
+  .imgfavorite {
+    height: 100%;
+    border-radius: 5px;
+  }
+  
+  .container .containerData p {
+    font-size: 18px;
+    padding: 20px;
+    color: #FF6464;
+  }
 }

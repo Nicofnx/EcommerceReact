@@ -59,49 +59,53 @@ const Header = () => {
 
   const handleFavorites = () => {
     setIsActiveFavorites(!isActiveFavorites)
+    
   }
+
+  
+  
 
 
   return(
     <div className={styles.headerBox}>
       <Banner />
       <div className={styles.containerHeader}>
-      <div className={styles.boxs}>
-        <NavLink to='/'>
-         <img src={logomarck} alt=""  className={styles.titlemark}/>
-        </NavLink>
-        
-      </div>
-      <div className={styles.boxs}>
-        <div className={styles.boxSearch}>
-          <input className={styles.inputHeader} onChange={onHandleChange} type="text" placeholder="Busca por marca..." />
-          
-          
-        </div>
-      </div>
-      <div className={styles.boxs}>
-        <div className={styles.boxLogos}>
-          <Button
-            mystyle='btnLogo'>
-            <FeatherIcon size="36" className={!isActiveFavorites ?styles.logo :styles.logoIsAvtive} icon="heart" onClick= {handleFavorites} />
-            <h4 className={styles.titleLogo}>Favoritos</h4>
-          </Button>
-          <Button
-            mystyle='btnLogo'>
-            <FeatherIcon size="36" className={styles.logo}  icon="user" />
-            <h4 className={styles.titleLogo}>Perfil</h4>
-          </Button>
-          <div className={styles.containerCart}>
-          <NavLink to='/checkout-page' className={styles.logo}>
-            <CartWidget 
-              number = {numberOfItems}
-            />   
+        <div className={styles.boxs}>
+          <NavLink to='/'>
+          <img src={logomarck} alt=""  className={styles.titlemark}/>
           </NavLink>
-          <h4 className={styles.titleLogo}>Compras</h4>
-          </div>
-                    
+          
         </div>
-      </div>  
+        <div className={styles.boxs}>
+          <div className={styles.boxSearch}>
+            <input className={styles.inputHeader} onChange={onHandleChange} type="text" placeholder="Busca por marca..." />
+            
+            
+          </div>
+        </div>
+        <div className={styles.boxs}>
+          <div className={styles.boxLogos}>
+            <Button
+              mystyle='btnLogo'>
+              <FeatherIcon  className={!isActiveFavorites ?styles.logo :styles.logoIsAvtive} icon="heart" onClick= {handleFavorites} />
+              
+            </Button>
+            {/* <Button
+              mystyle='btnLogo'>
+              <FeatherIcon size="36" className={styles.logo}  icon="user" />
+              <h4 className={styles.titleLogo}>Perfil</h4>
+            </Button> */}
+            <div className={styles.containerCart}>
+            <NavLink to='/checkout-page' className={styles.logo}>
+              <CartWidget 
+                number = {numberOfItems}
+              />   
+            </NavLink>
+            
+            </div>
+                      
+          </div>
+        </div>  
       </div>    
     </div>
   )

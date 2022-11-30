@@ -1,12 +1,13 @@
 .none{
-  width: 400px;
+  width: 100%;
+  margin: 0 4px;
   max-height: 100vh;
   background-color: white;
   visibility: hidden;
   position: absolute;
   overflow-y: auto;
-  top: 242.5px;
-  right:-400px;
+  top: 255px;
+  right:-100%;
   transition-property: initial;
   transition-duration: 0.3s;
   transition-timing-function: ease;
@@ -17,13 +18,14 @@
 }
 
 .container {
-  width: 400px;
+  width: 95%;
   max-height: 100vh;
   background-color: white;
   visibility:visible;
   position: absolute;
-  top: 242.5px;
-  right: 0;
+  top: 255px;
+  right: 2.5%;
+  
   z-index: 950;
   transition-property: initial;
   transition-duration: 0.3s;
@@ -36,11 +38,64 @@
 }
 
 .titleFav {
-  padding: 10px;
+  padding: 8px;
+  font-size: 18px;
   background-color:#FF6464 ;
   color: #fff
 }
 
 .titleNoProducts{
+  font-size: 16px;
   padding: 15px 5px;
+}
+
+
+@media (min-width: 400px) {
+
+  .none{
+    width: 400px;
+    max-height: 100vh;
+    background-color: white;
+    visibility: hidden;
+    position: absolute;
+    overflow-y: auto;
+    top: 242.5px;
+    right:-400px;
+    transition-property: initial;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+    border: 1px solid #FF6464;
+    border-radius: 10px;
+    overflow-y: auto;
+    box-shadow: 1px 1px 10px 1px #FF6464;
+  }
+  
+  .container {
+    width: 400px;
+    max-height: 100vh;
+    background-color: white;
+    visibility:visible;
+    position: absolute;
+    top: 242.5px;
+    right: 0;
+    z-index: 950;
+    transition-property: initial;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+    border: 1px solid #FF6464;
+    border-radius: 10px;
+    overflow-y: auto;
+    box-shadow: 1px 1px 10px 1px #FF6464;
+    
+  }
+  
+  .titleFav {
+    padding: 10px;
+    background-color:#FF6464 ;
+    color: #fff
+  }
+  
+  .titleNoProducts{
+    padding: 15px 5px;
+  }
 }

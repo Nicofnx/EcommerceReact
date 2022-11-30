@@ -2,18 +2,22 @@ import styles from './Styles/CheckOut.module.css'
 import accounting from 'accounting'
 import CardCheckOut from '../components/CardCheckOut'
 import Button from '../components/Button'
+import ModalBuy from '../components/Modal/ModalBuy'
 import { useLocation } from 'react-router-dom'
 import { actionTypes } from '../context/reducer'
 import { useStateValue } from '../context/BasketContext'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { getFirestore, collection, addDoc } from "firebase/firestore";
+import DataContext from '../context/DataContext';
 
-const CheckOut = (props) => {
+const CheckOut = () => {
+
   const params = useLocation()
-  
+  const {modalOpenBuy, setInfoModalBuy, setModalOpenBuy} = useContext(DataContext)
   const [ {basket}, dispatch ] = useStateValue()
   const [addPrice, setAddPrice] = useState(0)
-  
+  const [nameUser, setNameUser] = useState('')
+  const [mailUser, setMailUser] = useState('')
 
   useEffect(() => {
     let sumaPrice = 0
@@ -25,14 +29,22 @@ const CheckOut = (props) => {
     
     
   }, [basket])
+
+
+  const handleName = (e) =>{
+    setNameUser(e.target.value)
+  }
   
+  const handleEmail = (e) =>{
+    setMailUser(e.target.value)
+  }
  
 
-  const finishBuy = () => {
+  const finishBuy = (nameUser, mailUser) => {
     const myOrder = {
       user: {
-        name: 'Nicolas Rodriguez',
-        email: 'nicolasarielrodriguez@gmail.com'
+        name: nameUser,
+        email: mailUser
       },
       items: basket,
       total: addPrice,
@@ -45,8 +57,10 @@ const CheckOut = (props) => {
         dispatch({
           type: actionTypes.FINISH_BUY,      
         })
+        setInfoModalBuy({nameUser, mailUser})
+        setModalOpenBuy(true)
         setAddPrice(0)
-        alert('Compra Finalizada, recibira un mail')
+        
         
       })
   };
@@ -73,7 +87,28 @@ const CheckOut = (props) => {
         
         
       </div>
+      
       <div className={styles.containertotal}>
+        <div className={styles.containerInputs}>
+          <label for="name">Nombre:</label>
+          <input 
+            type="text" 
+            id="name" 
+            placeholder='Indique su nombre' 
+            name="user_name"
+            onChange={handleName}
+            
+          />
+          <label for="mail">Correo electrónico:</label>
+          <input 
+            type="email" 
+            id="mail" 
+            placeholder='Indique su correo' 
+            name="user_mail"
+            onChange={handleEmail}
+            
+          />
+        </div>
         <p>Total de la compra: 
           <span>
             {accounting.formatMoney(addPrice,"$" ,0, ".")}
@@ -82,11 +117,14 @@ const CheckOut = (props) => {
         <Button
           state = {basket.length===0 ? false : true}
           mystyle = 'btnBuy'
-          onClick = {finishBuy}
+          onClick = {()=>finishBuy(nameUser,mailUser)}
         >
           Finalizar compra
         </Button>
       </div>
+      {modalOpenBuy &&
+        <ModalBuy />
+      }
     </div>
   )
 }
