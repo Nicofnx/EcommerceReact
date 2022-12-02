@@ -1,7 +1,6 @@
-import DataContext from '../context/DataContext';
 import '../firebase'
 import { getFirestore, collection, getDocs, query, where} from 'firebase/firestore'
-import { useEffect, useState, useContext } from 'react'
+
 
 
 

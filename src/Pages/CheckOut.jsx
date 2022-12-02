@@ -18,6 +18,7 @@ const CheckOut = () => {
   const [addPrice, setAddPrice] = useState(0)
   const [nameUser, setNameUser] = useState('')
   const [mailUser, setMailUser] = useState('')
+  const [isFormComplete, setIsFormComplete] = useState(false)
 
   useEffect(() => {
     let sumaPrice = 0
@@ -38,6 +39,15 @@ const CheckOut = () => {
   const handleEmail = (e) =>{
     setMailUser(e.target.value)
   }
+
+  useEffect(()=>{
+    if(nameUser !== ''&& mailUser !== '' && basket.length>0){
+       setIsFormComplete(true)
+      }else{
+        setIsFormComplete(false)
+      }
+  },[nameUser,mailUser,isFormComplete, basket])
+  
  
 
   const finishBuy = (nameUser, mailUser) => {
@@ -63,6 +73,8 @@ const CheckOut = () => {
         
         
       })
+      setNameUser('')
+      setMailUser('')
   };
 
   
@@ -115,7 +127,7 @@ const CheckOut = () => {
           </span> 
         </p>
         <Button
-          state = {basket.length===0 ? false : true}
+          state = {isFormComplete ? true : false}
           mystyle = 'btnBuy'
           onClick = {()=>finishBuy(nameUser,mailUser)}
         >

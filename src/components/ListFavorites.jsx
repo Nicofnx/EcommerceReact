@@ -1,4 +1,3 @@
-
 import styles from './Styles/ListFavorites.module.css'
 import { useStateValue } from '../context/BasketContext'
 import DataContext from '../context/DataContext'
@@ -20,7 +19,7 @@ const ListFavorites = () => {
 }
 
   return(
-    <div className={isActiveFavorites ? styles.container : styles.none}>
+    <div className={`${styles.container} ${isActiveFavorites ? styles.visible : styles.hidden}`}>
       <h2 className={styles.titleFav}>Favoritos</h2>
       {
           favorites.length === 0

@@ -4,7 +4,7 @@ import imgshow3 from '../imagenes/imgshow3.jpg'
 import imgshow4 from '../imagenes/imgshow4.jpg'
 import imgshow5 from '../imagenes/imgshow4.jpg'
 import imgshow6 from '../imagenes/imgshow6.jpg'
-import { Slide, Fade } from 'react-slideshow-image';
+import { Fade } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css'
 import styles from './Styles/Carrousel.module.css'
 

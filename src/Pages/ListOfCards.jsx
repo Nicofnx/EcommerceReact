@@ -6,8 +6,7 @@ import { useEffect, useState, useContext } from 'react'
 import Modal from '../components/Modal/Modal';
 import DataContext from '../context/DataContext';
 import  { useStateValue } from '../context/BasketContext'
-import imgshow5 from '../imagenes/imgshow5.jpg'
-import { getFirestore, collection, getDocs} from 'firebase/firestore'
+import { getFirestore, collection} from 'firebase/firestore'
 import { getDataFromFirebase } from '../services/getDataFirebase';
 import Carrousel from '../components/Carrousel';
 

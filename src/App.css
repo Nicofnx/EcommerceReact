@@ -16,15 +16,10 @@ main {
 
 
 @media (min-width: 400px) {
-  main {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
+  
   
   .App {
-    text-align: center;
-    position: relative;
+    
     overflow-x: clip;
   }
 }

@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+Proyecto Ecommerce React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto ha sido inicializado con [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Scripts ejecutables
 
-In the project directory, you can run:
+En este proyecto puedes ejecutar:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Ejecuta el app en entorno de Desarrollo\
+Ejecuta [http://localhost:3000](http://localhost:3000) y se vizualiza en el navegador
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Ejecuta el test runnet e interactua escuchando las pruebas.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Se hace el build de la aplicacion para produccion y se crea la carpta de `build`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Mira la seccion de [deployment](https://facebook.github.io/create-react-app/docs/deployment) Para mas informacion
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Dependencias utilizadas
+- `accounting`: Da formato de moneda a numeros
+- `Feather-Icons`: Iconos para estilizar
+- `React Router`: Linkeo de enlaces internos
+- `React-SlidesShow-Image`: Carrusel de imagenes
+- `SweetAlert2`: Da estilo a las alertas
+- `Firebase`: Base de datos del backend. Servicio de google.
 
-### `npm run eject`
+Nota: una vez clonado el proyecto a tu carpeta, ejecuta en tu terminal "npm install" para que se te descarguen estas dependencias y el proyecto funciones correctamente.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Pre-requisitos
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [Node.js > 16](https://nodejs.org) y npm. (Recomendacion: usar [nvm](https://github.com/nvm-sh/nvm))
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Estructura de carpetas
+- `src`: Es la carpeta contenedora de todo nuestro codigo dentro de la aplicacion de React y contiene todas las funcionalidades.
+    - `components`: Es la carpeta que contiene todos los componentes de nuestra aplicacion.
+    - `styles`: Contiene los archivos css de los componentes.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- `App.js`: Es el componente donde inicial toda la aplicacion.
+- `context`: Es la carpeta que contiene los contextos que compartes los datos/estados de toda la aplicacion.
+- `pages`: contiene las paginas (layout) principales de la aplicacion.
+- `services`: Contiene las funciones que solicitan los datos a firebase.
+- `images`: Contiene las imagenes estaticas que se utilizan en el proyecto.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Estilos
+En este proyecto se opto por utilizar css modularizado sin ninguna libreria especifica como lo puede ser Boostrap o Tailwind. 
+Al utilizar esta forma de nombrar los archivos como "name.module.css" nos aseguramos de que los nombres de las clases nunca tengan problemas de nombramiento repetido.

@@ -60,67 +60,35 @@
 
 @media (min-width: 400px) {
 
-  .containerNavHidden{
-    display: none;
-  }
-  .containerNav{
-    display: block;
-  }
+  
+  
 
   .navUl {
-    display: flex;
     
-    justify-content: center ;
-    align-items: center;
     width: 100%;
     flex-wrap: wrap;
-    margin: 25px 0;
+   
     
     }
 
   .navLi {  
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #FFF;
+   
     padding: 20px 18px;
     height: 40px;
-    list-style: none;
-    border-radius: 20px;
     margin: 10px;
-    cursor: pointer;
     font-size: 20px;
-    border: 1px solid #FF6464;
-    transition-property: initial;
-    transition-duration: 0.3s;
-    transition-timing-function: ease;
+  
   }
 
-  .navLi:hover{
-    box-shadow: 1px 1px 10px 1px #FF6464;
-  }
+
 
   .navLiSelected{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  
     padding: 20px 18px;
     height: 40px;
-    list-style: none;
-    border-radius: 20px;
-    margin: 10px;
-    cursor: pointer;
     font-size: 20px;
-    border: 1px solid #FFF;
-    background-color: #FF6464;
-    color: #FFF;
-    transition-property: initial;
-    transition-duration: 0.3s;
-    transition-timing-function: ease;
   }
 
-  .navLiSelected:hover{
-    box-shadow: 1px 1px 10px 1px #FF6464;
-  }
+  
 
 }

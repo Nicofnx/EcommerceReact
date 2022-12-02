@@ -125,117 +125,40 @@
     height: 30px;
     margin: 5px;
     font-size: 24px;
-    background-color: #FF6464;
-    border: 0px;
-    border-radius: 50%;
-    cursor: pointer;
-    color: #fff;
+   
   }
   
   .btnFavorite {
-    border-radius: 50%;
-    border: none;
-    background-color: #FF6464;
-    color:#f6f6f6;
+    
     padding: 10px 10px;
     display: flex;
-    justify-content: center;
-    align-items: center;
     margin: 5px;
-    cursor: pointer;
-    transition: all 200ms;
+    
   }
   
-  .btnFavorite:hover{
-    box-shadow: 1px 1px 10px 1px #FF6464;
-  }
   
   .btnFavoriteDelete {
-    border-radius: 50%;
-    border: none;
-    background-color: #FF6464;
-    color:#f6f6f6;
     padding: 7px 7px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 5px;
-    cursor: pointer;
-    transition: all 200ms;
     height: 40px;
     width: 40px;
   }
   
-  .btnFavoriteDelete:hover{
-    box-shadow: 1px 1px 10px 1px #FF6464;
-  }
+
   
   .btnBuy {
     padding: 10px 30px;
-    transition: all 200ms;
-    border: none;
-    border-radius: 25px;
-    background-color: #FF6464;
-    color: #f6f6f6;
     font-size: 18px;
-    cursor: pointer;
-    
     
   
   }
+
   .disable {
     padding: 10px 30px;
-    transition: all 200ms;
-    border: none;
-    border-radius: 25px;
-    background-color: #494949;
-    color: #f6f6f6;
-    font-size: 18px;
-    cursor: not-allowed;
-    
-    
   
   }
   
-  .btnBuy:hover{
-    box-shadow: 1px 1px 10px 1px #FF6464;
-  }
+
+
   
-  .btnLogo {
-    background-color: transparent;
-    border: none;
-    margin: 5px;   
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    cursor: pointer;
-  }
-  
-  
-  
-  .btnSearch {
-    padding-right: 10px;
-    position: absolute;
-    background-color: transparent;
-    right: 0;
-    top:0;
-    bottom: 0;
-    width: 40px;
-    border: none;
-    cursor: pointer;
-    font-size: 10px;
-    display: block;
-    
-  }
-  
-  .addCart {
-    min-width: 200px;
-    height: 50px;
-    background-color: #fff;
-    border: 1px solid #444;
-    border-radius: 7px;
-    cursor: pointer;
-    
-  }
+
 }

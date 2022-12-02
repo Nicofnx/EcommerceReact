@@ -164,7 +164,7 @@ const Modal = () => {
                 <p>{description}</p>
               </div>
               <div className={styles.btns}>
-              {basket?.some(basketItem => basketItem.idSize === idSize)?<p className={styles.warning}>Producto ya agregado</p>:null}              
+              {basket?.some(basketItem => basketItem.idSize === idSize)?<p className={styles.warning2}>Producto ya agregado</p>:null}              
                 <Button 
                   onClick = {()=>addToBasket(sizeChose, id, idSize)}                  
                   mystyle='btnBuy'

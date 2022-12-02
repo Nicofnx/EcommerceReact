@@ -1,6 +1,6 @@
 import styles from './Styles/Footer.module.css'
 import FeatherIcon from 'feather-icons-react'
-import { Link } from "react-router-dom";
+
 
 const Footer = () =>{
   return(

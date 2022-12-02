@@ -64,8 +64,6 @@
 
 
 .containerImg {
-  
-  
   overflow: hidden;
   min-width: 100px;
   
@@ -138,15 +136,6 @@
   .container {
     
     margin: 20px 40px ;
-    max-height: 200px;
-    display: flex;
-    justify-content: space-between;
-    border-radius: 10px;
-    position: relative;
-    flex: 1;
-    background-color: #fff;
-    cursor: pointer;
-    
   }
   
   .container:hover .containerCard{
@@ -154,41 +143,13 @@
     
   }
   
-  .containerCard {
-    
-    position: relative;
+  .containerCard {   
     max-height: 200px;
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid #FF6464;
-    border-radius: 10px;
-    top: 0;
-    left: 0;
-    padding: 8px;
-    background-color: #fff;
-    cursor: pointer;
-    z-index: 200;
-    transition: transform 200ms ease-in-out;
   }
   
   
   
-  
-  .containerTrash{
-    
-    width: 100%;
-    height: 100%;
-    display: flex;
-    position: absolute;
-    justify-content: flex-end;
-    align-items: center;
-    border: 1px solid #FF6464;
-    border-radius: 10px;
-    padding: 10px;
-    background-color: #363636;
-    cursor: pointer;
-    z-index: 100;
-  }
+
   
   .containerTrash button {
     height: 50px;
@@ -200,45 +161,31 @@
   
   .containerImg {
     
-    
-    overflow: hidden;
     min-width: 300px;
-    
   }
   
   .imgCard {
     
     height: 190px;
     object-fit: cover;
-    object-position: center;
+    
   }
   
-  
-  
-  .marckAndDescription {
-    text-align: left;
-    margin: 5px 0;
-    
-    
-  
-  }
+
   .markAndmodel{
-    display: flex;
-    justify-content: center;
+    flex-direction: row;
     align-items: flex-start;
     
   }
   
   .markAndmodel h3 {
     text-align: left;
-    margin: 2px;
-    padding: 5px;
+    font-size: 18px;
   }
   
   .markAndmodel h4 {
     text-align: left;
-    margin: 2px;
-    padding: 5px;
+    font-size: 16px;
   }
   
   .marckAndDescription p {
@@ -254,23 +201,12 @@
     
   }
   
-  .containerbuttoms {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 15px;
-  }
+
   
   .containerbuttoms p{
     font-size: 22px;
-    font-weight: bold;
-    margin: 10px;
     width: 120px;
   }
   
-  .buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+ 
 }

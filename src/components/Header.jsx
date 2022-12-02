@@ -2,9 +2,7 @@ import FeatherIcon from 'feather-icons-react'
 import Button from './Button'
 import CartWidget from './CartWidget'
 import styles from './Styles/Header.module.css'
-import {
-  NavLink
-} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logomarck from '../imagenes/RuNstylesLogo.png'
 import { useStateValue } from '../context/BasketContext'
 import DataContext from '../context/DataContext'

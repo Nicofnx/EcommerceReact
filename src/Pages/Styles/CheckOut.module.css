@@ -110,98 +110,30 @@
   .container {
     max-width: 1440px;
     margin: auto;
-    display: flex;
     flex-direction: row;
-    justify-content: center;
     align-items: flex-start;
     
     
-    
-  }
-  
-  .containercards {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
   }
   
   .containertotal {
-    position: sticky;
-    top: 50px;
+    
     width: 600px;
     height: 300px;
-    border: 1px solid #FF6464;
-    border-radius: 10px;
-    padding: 8px;
-    background-color: #fff;
     margin: 20px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
+   
   }
   
   .containerInputs{
     width: 100%;
-    padding: 10px 20px;
-    display: flex;
-    flex-direction: column;
   }
   
-  .containerInputs label {
-    text-align: left;
-    color: #444;
-    padding: 8px 5px;
-    border: 1px solid #FF6464;
-    border-bottom: none;
-    background: rgb(255,100,100);
-    background: linear-gradient(180deg, rgba(255,100,100,1) 0%, rgba(255,255,255,1) 100%);
-    border-radius: 5px 5px 0 0;
-    
-  }
-  
-  .containerInputs label::after {
-    content: '*';
-    color:#F00
-  }
-  
-  .containerInputs input {
-    margin-bottom: 10px;
-    border-radius: 0 0 5px 5px;  
-    border: 1px solid #FF6464;
-    border-top: none;
-    padding: 5px 10px;
-    font-size: 18px;
-    transition: all 200ms ease-in;
-    color: #333;
-  }
-  
-  .containerInputs input::placeholder {
-    padding: 0 5px;
-    font-size: 14px;
-  }
-  
-  .containerInputs input:focus {
-    outline: none;
-    box-shadow: 2px 2px 10px 0px #FF6464;
-  }
-  
-  
+
   
   .titleNoProducts {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     height: 200px;
-    background: white;
-    border-radius: 20px;
     margin: 20px auto;
     padding: 80px 20px;
-    border: 1px solid #FF6464;
-    
   }
   
   .containertotal p {
@@ -211,8 +143,6 @@
   
   .containertotal span {
     font-size: 22px;
-    font-weight: bold;
-    padding: 0px 10px;
   }
 
 

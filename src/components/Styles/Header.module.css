@@ -21,19 +21,21 @@
     
   }
 
-  .titlemark{
-    width: 250px;
-    margin: 5px;
-    text-decoration:none;
-    color: white;
-    
-  }
+
 
   .boxLogos {
     display: flex;  
     justify-content: center;
     align-items: center;
     position: relative;
+    
+  }
+
+  .titlemark{
+    width: 250px;
+    margin: 5px;
+    text-decoration:none;
+    color: white;
     
   }
 
@@ -92,94 +94,47 @@
 @media (min-width: 400px) {
 
   .headerBox {
-    width: 100%;
     background-color: #363636;
-    border-bottom: 2px solid #f48585;
     text-align: start;
   }
 
   .containerHeader {
-    margin: auto;
+  
     max-width: 1440px;
     min-height: 100px;
-    display: flex;
-    align-items: center;
     justify-content: space-around;
     flex-direction: row;
-    color: white;
     padding: 0 10px;
   }
   
-  .boxs {
-    width: 100%;
-    
-  }
-
-  .boxLogos {
-    display: flex;  
-    justify-content: flex-end;
-    align-items: center;
-    position: relative;
-    
-  }
 
   .titlemark{
     font-size: 30px;
-    text-decoration:none;
-    color: white;
     text-align: left;
   }
   
-  .boxSearch {
-    position: relative;
-    
-  }
+  
   
   .inputHeader {
-    
-    
     height: 40px;
-    padding: 5px 40px 5px 12px;
-    font-size: 18px;
-    border-radius: 15px;
-    border: 2px solid #f48585;
-    outline-style: none;
     
   }
   
-  
-  
-  
-
   
   
   .logo {
     width: 42px;
     height: 42px;
-    margin: 10px;
-    display: block;
-    cursor: pointer;
-    color: #000;
-    transition: all 200ms ease-in-out;
+  
     
   }
 
   .logoIsAvtive {
     width: 42px;
     height: 42px;
-    margin: 10px;
-    display: block;
-    cursor: pointer;
-    color: #FF6464;
-    transition: all 200ms ease-in-out;
-  }
-
-  .logo:hover {
-    color:  #FF6464;
-    
-  }
-
   
- 
+  }
+
+
   
 }
