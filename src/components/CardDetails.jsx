@@ -17,7 +17,6 @@ const CardDetails = ({item}) => {
   
   
   const {id, mark, model, description, price, stock, img} = item
- 
   const { setInfoModal, setModalOpen} = useContext(DataContext)
   const [imgShow, setImgShow] = useState(img[imagesIndex[0]])
   const [btngalleyImg, setBtnGalletyImg] = useState(0)

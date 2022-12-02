@@ -1,7 +1,6 @@
 import styles from "./Styles/NavBar.module.css"
 import { useState, useContext } from "react"
 import DataContext from '../context/DataContext'
-
 import { getCategoryFilters } from '../services/getDataFirebase'
 import { useLocation } from 'react-router-dom'
 

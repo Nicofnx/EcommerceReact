@@ -2,8 +2,6 @@ import Button from './Button'
 import accounting from 'accounting'
 import FeatherIcon from 'feather-icons-react'
 import styles from './Styles/CardCheckOut.module.css'
-
-
 import { actionTypes } from '../context/reducer'
 import { useStateValue } from '../context/BasketContext'
 

@@ -111,7 +111,7 @@
   padding: 15px 50px;
 }
 
-@media (min-width: 400px) {
+@media (min-width: 500px) {
   .container {
     
     width: 1000px;
