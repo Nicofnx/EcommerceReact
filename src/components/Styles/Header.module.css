@@ -12,6 +12,7 @@
     align-items: center;
     justify-content: center;
     color: white;
+    
   }
   
   .boxs {
@@ -106,6 +107,7 @@
     justify-content: space-around;
     flex-direction: row;
     color: white;
+    padding: 0 10px;
   }
   
   .boxs {
@@ -152,8 +154,8 @@
   
   
   .logo {
-    width: 34px;
-    height: 34px;
+    width: 42px;
+    height: 42px;
     margin: 10px;
     display: block;
     cursor: pointer;
@@ -163,8 +165,8 @@
   }
 
   .logoIsAvtive {
-    width: 34px;
-    height: 34px;
+    width: 42px;
+    height: 42px;
     margin: 10px;
     display: block;
     cursor: pointer;
@@ -174,7 +176,6 @@
 
   .logo:hover {
     color:  #FF6464;
-    transform: scale(1.1);
     
   }
 

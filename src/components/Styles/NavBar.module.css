@@ -1,3 +1,9 @@
+.containerNavHidden{
+  display: none;
+}
+.containerNav{
+  display: block;
+}
 
   .navUl {
     display: flex;
@@ -54,6 +60,13 @@
 
 @media (min-width: 400px) {
 
+  .containerNavHidden{
+    display: none;
+  }
+  .containerNav{
+    display: block;
+  }
+
   .navUl {
     display: flex;
     
@@ -76,6 +89,7 @@
     border-radius: 20px;
     margin: 10px;
     cursor: pointer;
+    font-size: 20px;
     border: 1px solid #FF6464;
     transition-property: initial;
     transition-duration: 0.3s;
@@ -96,6 +110,7 @@
     border-radius: 20px;
     margin: 10px;
     cursor: pointer;
+    font-size: 20px;
     border: 1px solid #FFF;
     background-color: #FF6464;
     color: #FFF;

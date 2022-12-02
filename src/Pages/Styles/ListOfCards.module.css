@@ -1,10 +1,10 @@
 
 .containerList {
   width: 100%;
+  max-width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-content: center;
-  overflow-y: hidden
   
 }
 
@@ -28,7 +28,7 @@
 .noProductTitle{
   width: 100%;
   height: 100px;
-  padding: 25px 50px;
+  padding: 25px 40px;
   background-color: #fff;
   border-radius: 10px;
   border: 1px solid #FF6464;
@@ -47,7 +47,7 @@
     grid-template-columns: 350px auto ;
     grid-template-areas:'filters listCards';   
     grid-template-rows: auto;
-    justify-content: space-around;
+    justify-content: stretch;
     align-content: center;
     
     
@@ -86,7 +86,8 @@
     border: 1px solid #FF6464;
     margin: 10px;
     display: flex;
-    align-items: center;
+    justify-content: center;
+    
   }
   
 }

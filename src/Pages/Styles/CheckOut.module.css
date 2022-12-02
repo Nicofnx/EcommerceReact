@@ -2,7 +2,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  margin: 20px auto;
   width: 95%;
+  
   
 }
 
@@ -79,7 +82,10 @@
 
 .titleNoProducts {
   width: 100%;
-  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
   background: white;
   border-radius: 20px;
   margin: auto;
@@ -107,6 +113,8 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: flex-start;
+    
     
     
   }
@@ -184,16 +192,21 @@
   
   .titleNoProducts {
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 200px;
     background: white;
     border-radius: 20px;
-    margin: auto;
+    margin: 20px auto;
     padding: 80px 20px;
     border: 1px solid #FF6464;
+    
   }
   
   .containertotal p {
     font-size: 22px;
+    
   }
   
   .containertotal span {

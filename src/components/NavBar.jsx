@@ -1,11 +1,13 @@
 import styles from "./Styles/NavBar.module.css"
 import { useState, useContext } from "react"
 import DataContext from '../context/DataContext'
-import { getFirestore, collection, getDocs, where, query} from 'firebase/firestore'
+
 import { getCategoryFilters } from '../services/getDataFirebase'
+import { useLocation } from 'react-router-dom'
 
 const NavBar = () => {
   
+  const locationPath = useLocation()
   const { products, setFilterProducts,allCategories } = useContext(DataContext)
   const [isSelected, setIsSelected] = useState(1)
   
@@ -36,7 +38,7 @@ const NavBar = () => {
 
 
   return(
-    <div  className={styles.containerNav}>
+    <div  className={locationPath.pathname === '/' ?styles.containerNav :styles.containerNavHidden}>
       <ul className={styles.navUl}>      
         {
           allCategories.map((item) =>{

@@ -10,8 +10,10 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import ListFavorites from './components/ListFavorites';
+import ListFavorites from './components/ListFavorites'
 import Footer from './components/Footer';
+
+
 
 
 
@@ -33,6 +35,9 @@ function App() {
           <NavBar/>   
         </header>
         <main>
+          <ListFavorites />
+          
+        
           <Routes>
             <Route path="/" element={<ListOfCards/>}>
             Lista de productos
@@ -45,7 +50,7 @@ function App() {
               página que no existe
             </Route>
           </Routes>
-          <ListFavorites />
+          
         </main>
         <footer>
           <Footer />

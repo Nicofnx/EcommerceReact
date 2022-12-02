@@ -24,8 +24,8 @@ const ModalBuy = () => {
     <div className={styles.overlay}>
       <div  className={styles.container}>
         <div onClick={closeModal} className={styles.btnclosed}>X</div>
-        <p>{nameUser} Gracias por su compra</p>
-        <p>Recibira un correo a {mailUser} con los detalles del envio</p>
+        <p><span>{nameUser}</span> gracias por su compra!!</p>
+        <p>Recibira un correo a <span>{mailUser}</span> con los detalles del envio</p>
         
         
         

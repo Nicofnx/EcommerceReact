@@ -8,6 +8,8 @@ import ItemsCount from '../ItemsCount'
 import DataContext from '../../context/DataContext'
 import { actionTypes } from '../../context/reducer'
 import { useStateValue } from '../../context/BasketContext'
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 const imagesIndex = {
   0: 'general',
@@ -17,7 +19,7 @@ const imagesIndex = {
 
 const Modal = () => {
 
-  
+  const MySwal = withReactContent(Swal)
   const {infoModal, setModalOpen, number, setNumber} = useContext(DataContext)
   const {id, mark, model, description, price, size, stock, img} = infoModal
   const [imgShow, setImgShow] = useState(img[imagesIndex[0]])
@@ -76,7 +78,13 @@ const Modal = () => {
             number,
           }
         })
-        alert('Su pedido fue cargado con exito')
+        MySwal.fire({
+          position: 'top',
+          imageUrl: 'https://media0.giphy.com/media/fscIxPfKjPyShbwUS5/giphy.gif?cid=790b7611b9f84714fad1492eeaedbb79e39f9985eac4469d&rid=giphy.gif&ct=s',
+          title: 'Producto agregado al carrito',
+          showConfirmButton: false,
+          timer: 2000
+        })
         setNumber(1)
         setModalOpen(false)
         

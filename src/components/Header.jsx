@@ -17,7 +17,7 @@ import { useEffect, useState } from 'react';
 const Header = () => {
 
   const [ {basket} ] = useStateValue()
-  const { products, setFilterProducts, isActiveFavorites, setIsActiveFavorites } = useContext(DataContext)
+  const { products, setFilterProducts, isActiveFavorites, setIsActiveFavorites, filterProducts} = useContext(DataContext)
   const [numberOfItems, setNumberOfItems] = useState(0)
 
   const debounce = (func, wait) => {
@@ -55,7 +55,7 @@ const Header = () => {
     const newFilter = products.filter(product => product.mark.includes(firstLeterMayus) );
     
     setFilterProducts(newFilter);
-  }, 500), [products, setFilterProducts]);
+  }, 500), [products, setFilterProducts, filterProducts]);
 
   const handleFavorites = () => {
     setIsActiveFavorites(!isActiveFavorites)
