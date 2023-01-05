@@ -2,15 +2,15 @@ import styles from './Styles/ListOfCards.module.css'
 import Card from '../components/Card'
 import Spinner from '../components/Spinner';
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useState, useContext } from 'react'
-import Modal from '../components/Modal/Modal';
+import { useEffect, useState, useContext, lazy, Suspense } from 'react'
+//import Modal from '../components/Modal/Modal';
 import DataContext from '../context/DataContext';
 import  { useStateValue } from '../context/BasketContext'
 import { getFirestore, collection} from 'firebase/firestore'
 import { getDataFromFirebase } from '../services/getDataFirebase';
 import Carrousel from '../components/Carrousel';
 
-
+const Modal = lazy(() => import('../components/Modal/Modal'))
 
 
 const ListOfCards = () => {
@@ -100,9 +100,12 @@ const ListOfCards = () => {
         
         
       </div>
-      {modalOpen &&
-        <Modal />
-      }
+      <Suspense fallback={<div>Cargando modal...</div>}>
+        {modalOpen &&
+          <Modal />
+        }
+      </Suspense>
+     
       
     </div>
     </>
