@@ -46,9 +46,7 @@ function App() {
             Carrito de compras
             </Route>
             <Route exact path="/detailspage/:detailsId" element={<DetailsPages />} />
-            <Route path="*" component={NotFound} >
-              página que no existe
-            </Route>
+            <Route path="*" element={<NotFound />} />
           </Routes>
           
         </main>

@@ -24,5 +24,11 @@ const firebaseConfig = {
   
 };
 
+// El proyecto puede ejecutarse sin credenciales de Firebase. Esto permite que
+// el catalogo local siga funcionando aunque el backend original ya no este
+// disponible o sus reglas de seguridad hayan cambiado.
+export const isFirebaseConfigured = Object.values(firebaseConfig).every(Boolean);
 
-const app = initializeApp(firebaseConfig);
+export const firebaseApp = isFirebaseConfigured
+  ? initializeApp(firebaseConfig)
+  : null;

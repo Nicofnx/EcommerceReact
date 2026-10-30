@@ -1,38 +1,15 @@
-import '../firebase'
-import { getFirestore, collection, getDocs, query, where} from 'firebase/firestore'
+import { getDocs } from 'firebase/firestore'
 
+// Conservamos este helper para una futura reconexion con Firestore. Nunca se
+// invoca sin una consulta y siempre devuelve un array, incluso ante un error.
+export const getDataFromFirebase = async (firebaseQuery, fallback = []) => {
+  if (!firebaseQuery) return fallback
 
-
-
-
-export const getDataFromFirebase = async (dataFirabase) => {
-  const controller = new AbortController()
-  const { signal } = controller
-  try{
-    const resp = await getDocs(dataFirabase,{signal})
-    const data = await resp.docs.map((doc)=>({id: doc.id, ...doc.data()}))
-    return data
-    
-
+  try {
+    const snapshot = await getDocs(firebaseQuery)
+    return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+  } catch (error) {
+    console.warn('No se pudo cargar Firestore; se usan datos locales.', error.message)
+    return fallback
   }
-  catch(err) {
-    if (err.name !== 'AbortError') {
-    console.error(err.message)
-    }
-  }
-  return () => controller.abort()
-}
-
-getDataFromFirebase()
-
-
-export const getCategoryFilters = async (categorygender='Hombre')=>{
-  const db = getFirestore();
-  const q =  query(
-    collection(db, 'productos'),
-    where('gender', '==', categorygender)
-  );
-  return getDocs(q)
-  
-  
 }

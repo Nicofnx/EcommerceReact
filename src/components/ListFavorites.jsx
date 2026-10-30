@@ -22,7 +22,7 @@ const ListFavorites = () => {
     <div className={`${styles.container} ${isActiveFavorites ? styles.visible : styles.hidden}`}>
       <h2 className={styles.titleFav}>Favoritos</h2>
       {
-          favorites.length === 0
+          (favorites ?? []).length === 0
           ? <h3 className={styles.titleNoProducts}>No hay favoritos guardados</h3>
           :favorites?.map((el)=>{
             return(
