@@ -1,3 +1,21 @@
+const placeholderImages = [
+  {
+    general: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80',
+    side: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=900&q=80',
+    pair: 'https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=900&q=80'
+  },
+  {
+    general: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=900&q=80',
+    side: 'https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=900&q=80',
+    pair: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80'
+  },
+  {
+    general: 'https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=900&q=80',
+    side: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80',
+    pair: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=900&q=80'
+  }
+]
+
 const products = [
   {
     id : 1,
@@ -8,11 +26,7 @@ const products = [
     gender : 'Hombre',
     size : [38, 38.5,39,39.5,40,40.5,41,41.5,42],
     stock : 7,
-    img : {
-      general : 'https://www.opensports.com.ar/media/catalog/product/cache/4769e4d9f3516e60f2b4303f8e5014a8/D/D/DD0204-400_0_18.jpg',
-      side : 'https://www.opensports.com.ar/media/catalog/product/cache/4769e4d9f3516e60f2b4303f8e5014a8/C/W/CW3421-400_1.jpg',
-      pair : 'https://www.opensports.com.ar/media/catalog/product/cache/4769e4d9f3516e60f2b4303f8e5014a8/C/W/CW3421-400_2_10.jpg'
-    },   
+    img : placeholderImages[0],
   },
 
   {
@@ -24,11 +38,7 @@ const products = [
     gender : 'Mujer',
     size : [38, 38.5,39,39.5,40,40.5,41,41.5,42],
     stock : 4,
-    img : {
-      general : 'https://www.opensports.com.ar/media/catalog/product/cache/4769e4d9f3516e60f2b4303f8e5014a8/D/D/DD9291-300_0.jpg',
-      side : 'https://www.opensports.com.ar/media/catalog/product/cache/4769e4d9f3516e60f2b4303f8e5014a8/D/D/DD9291-300_1.jpg',
-      pair : 'https://www.opensports.com.ar/media/catalog/product/cache/4769e4d9f3516e60f2b4303f8e5014a8/D/D/DD9291-300_3.jpg'
-    },   
+    img : placeholderImages[1],
   },
 
   {
@@ -40,11 +50,7 @@ const products = [
     gender : 'Hombre',
     size : [38, 38.5,39,39.5,40,40.5,41,41.5,42],
     stock : 6,
-    img : {
-      general : 'https://www.opensports.com.ar/media/catalog/product/cache/4769e4d9f3516e60f2b4303f8e5014a8/F/Y/FY9216_0_14.jpg',
-      side : 'https://www.opensports.com.ar/media/catalog/product/cache/4769e4d9f3516e60f2b4303f8e5014a8/F/Y/FY9216_1.jpg',
-      pair : 'https://www.opensports.com.ar/media/catalog/product/cache/4769e4d9f3516e60f2b4303f8e5014a8/F/Y/FY9216_3.jpg'
-    },   
+    img : placeholderImages[2],
   },
  
   {
@@ -56,11 +62,7 @@ const products = [
     gender : 'Hombre',
     size : [38, 38.5,39,39.5,40,40.5,41,41.5,42],
     stock : 8,
-    img : {
-      general : 'https://www.opensports.com.ar/media/catalog/product/cache/4769e4d9f3516e60f2b4303f8e5014a8/G/X/GX0719_0.jpg',
-      side : 'https://www.opensports.com.ar/media/catalog/product/cache/4769e4d9f3516e60f2b4303f8e5014a8/G/X/GX0719_1.jpg',
-      pair : 'https://www.opensports.com.ar/media/catalog/product/cache/4769e4d9f3516e60f2b4303f8e5014a8/G/X/GX0719_3.jpg'
-    },   
+    img : placeholderImages[0],
   },
   
   {
@@ -72,11 +74,7 @@ const products = [
     gender : 'Hombre',
     size : [38, 38.5,39,39.5,40,40.5,41,41.5,42],
     stock : 10,
-    img : {
-      general : 'https://www.opensports.com.ar/media/catalog/product/cache/4769e4d9f3516e60f2b4303f8e5014a8/3/7/37695102_0.jpg',
-      side : 'https://www.opensports.com.ar/media/catalog/product/cache/4769e4d9f3516e60f2b4303f8e5014a8/3/7/37695102_2.jpg',
-      pair : 'https://www.opensports.com.ar/media/catalog/product/cache/4769e4d9f3516e60f2b4303f8e5014a8/3/7/37695102_1.jpg'
-    },   
+    img : placeholderImages[1],
   },
   {
     id : 6,
@@ -87,11 +85,7 @@ const products = [
     gender : 'Mujer',
     size : [38, 38.5,39,39.5,40,40.5,41,41.5,42],
     stock : 7,
-    img : {
-      general : 'https://www.opensports.com.ar/media/catalog/product/cache/4769e4d9f3516e60f2b4303f8e5014a8/3/7/37712908_0.jpg',
-      side : 'https://www.opensports.com.ar/media/catalog/product/cache/4769e4d9f3516e60f2b4303f8e5014a8/3/7/37712908_4.jpg',
-      pair : 'https://www.opensports.com.ar/media/catalog/product/cache/4769e4d9f3516e60f2b4303f8e5014a8/3/7/37712908_1.jpg'
-    },   
+    img : placeholderImages[2],
   },
   {
     id : 7,
@@ -102,11 +96,7 @@ const products = [
     gender : 'Hombre',
     size : [38, 38.5,39,39.5,40,40.5,41,41.5,42],
     stock : 6,
-    img : {
-      general : 'https://www.opensports.com.ar/media/catalog/product/cache/4769e4d9f3516e60f2b4303f8e5014a8/3/0/3025923-602_0.jpg',
-      side : 'https://www.opensports.com.ar/media/catalog/product/cache/4769e4d9f3516e60f2b4303f8e5014a8/3/0/3025923-602_3.jpg',
-      pair : 'https://www.opensports.com.ar/media/catalog/product/cache/4769e4d9f3516e60f2b4303f8e5014a8/3/0/3025923-602_1.jpg'
-    },   
+    img : placeholderImages[0],
   },
   {
     id : 8,
@@ -117,11 +107,7 @@ const products = [
     gender : 'Mujer',
     size : [38, 38.5,39,39.5,40,40.5,41,41.5,42],
     stock : 5,
-    img : {
-      general : 'https://newsport.vteximg.com.br/arquivos/ids/13479602-1000-1000/3025060600-A.jpg?v=637880442460600000',
-      side : 'https://newsport.vteximg.com.br/arquivos/ids/13479603-1000-1000/3025060600-B.jpg?v=637880442463100000',
-      pair : 'https://s3.sa-east-1.amazonaws.com/www.vaypol.com.ar/variants/5xpw7r97l1crxjuu2huqxn43vqks/c77c2a06864ac9aca38dc5bd9371de015471edcdbf322dfb14411689bf968ae5'
-    },   
+    img : placeholderImages[1],
   },
   {
     id : 9,
@@ -132,11 +118,7 @@ const products = [
     gender : 'Hombre',
     size : [38, 38.5,39,39.5,40,40.5,41,41.5,42],
     stock : 6,
-    img : {
-      general : 'https://www.stockcenter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dw4044f865/products/TO_27132/TO_27132-1.JPG',
-      side : 'https://www.stockcenter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dw357485f2/products/TO_27132/TO_27132-2.JPG',
-      pair : 'https://www.stockcenter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dw1e32a238/products/TO_27132/TO_27132-6.JPG'
-    },   
+    img : placeholderImages[2],
   },
   {
     id : 10,
@@ -147,11 +129,7 @@ const products = [
     gender : 'Mujer',
     size : [38, 38.5,39,39.5,40,40.5,41,41.5,42],
     stock : 4,
-    img : {
-      general : 'https://www.stockcenter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dw7430a9cb/products/TO_27911/TO_27911-1.JPG',
-      side : 'https://www.stockcenter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dw82d4c7c4/products/TO_27911/TO_27911-2.JPG',
-      pair : 'https://www.stockcenter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dw4f03e5be/products/TO_27911/TO_27911-6.JPG'
-    },   
+    img : placeholderImages[0],
   },
   
   
